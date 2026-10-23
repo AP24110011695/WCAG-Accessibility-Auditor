@@ -1,0 +1,101 @@
+{
+  "runs": [],
+  "page_inputs": [],
+  "sources": [],
+  "findings": [],
+  "decisions": [],
+  "evidence": [],
+  "actions": [
+    {
+      "action_id": "act-0b4c1462",
+      "idempotency_key": "idem-initial-issue",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-form-initial",
+        "title": "Input missing label",
+        "description": "Form input requires a label",
+        "wcag_criterion": "4.1.2",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-20T10:42:37.405Z",
+      "executed_at": "2026-10-20T10:42:37.415Z"
+    },
+    {
+      "action_id": "act-3826f9d6",
+      "idempotency_key": "9a8f81a0816ce9ab621f67247de6224376bc929fbd6d96c80d7d5b880d16e26c",
+      "action_type": "close_issue",
+      "payload_json": {
+        "issue_id": "issue-162234ad",
+        "reason": "Resolved: retest passed all checks clean"
+      },
+      "status": "executed",
+      "created_at": "2026-10-20T10:42:40.611Z",
+      "executed_at": "2026-10-20T10:42:40.623Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "apr-b487ab09",
+      "action_id": "act-0b4c1462",
+      "decision": "approve",
+      "approver": "Auditor",
+      "reason": null,
+      "approved_at": "2026-10-20T10:42:37.411Z"
+    },
+    {
+      "approval_id": "apr-ec77ff74",
+      "action_id": "act-3826f9d6",
+      "decision": "approve",
+      "approver": "Auditor Lead",
+      "reason": null,
+      "approved_at": "2026-10-20T10:42:40.620Z"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "issue-162234ad",
+      "finding_id": "find-form-initial",
+      "action_id": "act-0b4c1462",
+      "title": "Input missing label",
+      "description": "Form input requires a label",
+      "wcag_criterion": "4.1.2",
+      "severity": "serious",
+      "status": "closed"
+    }
+  ],
+  "retests": [
+    {
+      "retest_id": "ret-e410abb5",
+      "issue_id": "issue-162234ad",
+      "run_id": "run-202610201042-8c3e",
+      "intended": "Fix issue Input missing label (4.1.2) and pass all checks",
+      "observed": "Check 4.1.2 failed again on retested page",
+      "outcome": "fail",
+      "evidence_ids": [
+        "ev-8a5005e7",
+        "ev-f4b9c8ba",
+        "ev-46c51650",
+        "ev-fec06d20",
+        "ev-064d4423"
+      ],
+      "created_at": "2026-10-20T10:42:39.194Z"
+    },
+    {
+      "retest_id": "ret-11b85863",
+      "issue_id": "issue-162234ad",
+      "run_id": "run-202610201042-e0a8",
+      "intended": "Fix issue Input missing label (4.1.2) and pass all checks",
+      "observed": "All checks passed clean on retested page",
+      "outcome": "pass",
+      "evidence_ids": [
+        "ev-11fffe39",
+        "ev-a64464a4",
+        "ev-0bda0e3a",
+        "ev-853e24f6",
+        "ev-e162e7aa"
+      ],
+      "created_at": "2026-10-20T10:42:40.609Z"
+    }
+  ]
+}

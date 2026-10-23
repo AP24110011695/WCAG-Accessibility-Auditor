@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessible Modal Example</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header>
+    <span class="brand">Riverbend Supply Co.</span>
+  </header>
+  <main>
+    <h1>Accessible Dialog Pattern</h1>
+    <p>This dialog properly closes on Escape and restores focus to the opener.</p>
+    <button id="open-dialog" type="button" class="btn">Open accessible dialog</button>
+    <p><a href="index.html">Back to home</a></p>
+  </main>
+
+  <div id="overlay" class="overlay" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <h2 id="dialog-title">Accessible Dialog</h2>
+      <p>This modal can be dismissed with Escape or the close button.</p>
+      <button id="close-dialog" type="button" class="btn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById("overlay");
+    const opener = document.getElementById("open-dialog");
+    const closer = document.getElementById("close-dialog");
+    let prevFocus = null;
+
+    opener.addEventListener("click", () => {
+      prevFocus = document.activeElement;
+      overlay.hidden = false;
+      closer.focus();
+    });
+
+    function close() {
+      overlay.hidden = true;
+      if (prevFocus) prevFocus.focus();
+    }
+
+    closer.addEventListener("click", close);
+
+    document.addEventListener("keydown", (e) => {
+      if (overlay.hidden) return;
+      if (e.key === "Escape") {
+        close();
+      }
+    });
+  </script>
+</body>
+</html>

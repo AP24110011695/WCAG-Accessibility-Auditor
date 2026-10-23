@@ -1,0 +1,119 @@
+{
+  "runs": [
+    {
+      "run_id": "run-202610221548-0117",
+      "created_at": "2026-10-22T15:48:01.502Z",
+      "target_level": "WCAG2.2-AA",
+      "status": "awaiting_approval",
+      "config_json": {
+        "urls": [
+          "http://127.0.0.1:61281/form-fixed.html"
+        ],
+        "target_level": "WCAG2.2-AA",
+        "max_pages": 1,
+        "allowed_hosts": [
+          "127.0.0.1",
+          "localhost",
+          "example.com",
+          "sunflower-audit.github.io"
+        ]
+      },
+      "trigger_source": "local",
+      "plan_json": [
+        {
+          "check": "fetch",
+          "scope": "page",
+          "reason": "static fetch first (Cheerio); escalate to a Playwright render only if the body looks like an empty JS app shell"
+        },
+        {
+          "check": "axe",
+          "scope": "page",
+          "reason": "baseline automated sweep at WCAG2.2-AA; axe 'incomplete' results become uncertain findings"
+        },
+        {
+          "check": "keyboard_walk",
+          "scope": "page",
+          "reason": "run when the rendered page has interactive elements; traces Tab/Shift+Tab/Escape and checks focus visibility"
+        },
+        {
+          "check": "modal_trap_walk",
+          "scope": "page",
+          "reason": "deep trap walk only when modal markers, forms or custom widgets are detected (condition evaluated post-render)"
+        },
+        {
+          "check": "contrast_sample",
+          "scope": "page",
+          "reason": "sample contrast against real background pixels wherever text sits over a background image (evaluated post-render)"
+        },
+        {
+          "check": "heuristics",
+          "scope": "page",
+          "reason": "deterministic manual-style checks that scanners pass: generic link text, focus visibility"
+        }
+      ]
+    }
+  ],
+  "page_inputs": [
+    {
+      "input_id": "pg-run-202610221548-0117-01",
+      "run_id": "run-202610221548-0117",
+      "url": "http://127.0.0.1:61281/form-fixed.html",
+      "validation_status": "valid"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src-4e55cd04",
+      "input_id": "pg-run-202610221548-0117-01",
+      "url": "http://127.0.0.1:61281/form-fixed.html",
+      "retrieved_at": "2026-10-22T15:48:01.731Z",
+      "http_status": 200,
+      "fetch_method": "cheerio",
+      "content_hash": "b35407dcdbe0e6754ad1fcac4e0e6910fb502851a74a38502a8975f6ef6d3f06",
+      "snapshot_path": "evidence/1792684081767-snapshot-01.html"
+    }
+  ],
+  "findings": [],
+  "decisions": [],
+  "evidence": [
+    {
+      "evidence_id": "ev-a4f7cc18",
+      "type": "dom_snippet",
+      "path": "evidence/1792684081767-snapshot-01.html",
+      "checksum": "b35407dcdbe0e6754ad1fcac4e0e6910fb502851a74a38502a8975f6ef6d3f06",
+      "created_at": "2026-10-22T15:48:01.768Z"
+    },
+    {
+      "evidence_id": "ev-496d0c56",
+      "type": "axe_report",
+      "path": "evidence/1792684082024-axe-01.json",
+      "checksum": "7c9d41e9a1b75bd5de1dbbf491a04635c6165362ffbfddf703dd925d2e723049",
+      "created_at": "2026-10-22T15:48:02.026Z"
+    },
+    {
+      "evidence_id": "ev-e33c29e9",
+      "type": "keystroke_trace",
+      "path": "evidence/1792684082557-keyboard-trace-01.json",
+      "checksum": "5c63ddeaf3763978d45e045fe575e3e42c7fd3123a0b91aa146ce7b4168d1111",
+      "created_at": "2026-10-22T15:48:02.563Z"
+    },
+    {
+      "evidence_id": "ev-f770a70b",
+      "type": "video",
+      "path": "evidence/1792684082566-keyboard-walk-01.webm",
+      "checksum": "822c33a942760553be01f935b587493a8b1b25dd0704eb3f0a19c6c7f08ce26c",
+      "created_at": "2026-10-22T15:48:02.568Z"
+    },
+    {
+      "evidence_id": "ev-5f62ba86",
+      "type": "screenshot",
+      "path": "evidence/1792684082571-keyboard-keyframe-1-01.png",
+      "checksum": "1664b539934eb7b6f6f99152d951c2dd4572f6a7df3ad7ce727cb03f16bbbb20",
+      "created_at": "2026-10-22T15:48:02.572Z"
+    }
+  ],
+  "actions": [],
+  "approvals": [],
+  "issues": [],
+  "retests": []
+}

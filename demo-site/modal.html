@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modal demo — Riverbend Supply Co.</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header>
+    <span class="brand">Riverbend Supply Co.</span>
+    <nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="modal.html">Modal demo</a>
+      <a href="links.html">Links demo</a>
+      <a href="photo-hero.html">Photo hero</a>
+      <a href="form.html">Form demo</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Equipment reservation preview</h1>
+    <p>This page demonstrates the reservation preview dialog used during checkout.</p>
+    <button id="open-preview" class="btn">Open reservation preview</button>
+
+    <p>While the preview is open, the rest of the page — including the
+       <a href="index.html">home page link</a> and the button below — stays in the tab order.</p>
+    <button class="btn" type="button">Add paddles to reservation</button>
+  </main>
+  <footer>
+    <p>Riverbend Supply Co., 12 Mill Street. Open Tuesday to Sunday, 9am to 6pm.</p>
+  </footer>
+
+  <div id="overlay" class="overlay" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="preview-title" data-demo-bug="TC1-focus-trap">
+      <h2 id="preview-title">Reservation preview</h2>
+      <p>Two-person canoe, two paddles, one dry bag. Weekend rate applies.</p>
+      <p><a href="index.html">View the full rental policy</a></p>
+      <button id="close-preview" class="btn">Close preview</button>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById("overlay");
+    const dialog = document.getElementById("preview-title").closest(".dialog");
+    const opener = document.getElementById("open-preview");
+    let lastFocus = null;
+
+    function focusables(root) {
+      return [...root.querySelectorAll("a[href], button:not([disabled]), input, select, [tabindex]:not([tabindex='-1'])")];
+    }
+
+    opener.addEventListener("click", () => {
+      lastFocus = document.activeElement;
+      overlay.hidden = false;
+      const first = focusables(dialog)[0];
+      if (first) first.focus();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (overlay.hidden) return;
+      if (e.key === "Escape") {
+        e.preventDefault(); // demo bug (TC1): Escape does not close the dialog
+        return;
+      }
+      if (e.key === "Tab") {
+        e.preventDefault(); // demo bug (TC1): Tab is forced to cycle inside the dialog
+        const items = focusables(dialog);
+        if (items.length === 0) return;
+        const at = items.indexOf(document.activeElement);
+        const next = e.shiftKey
+          ? (at <= 0 ? items.length - 1 : at - 1)
+          : (at === -1 || at === items.length - 1 ? 0 : at + 1);
+        items[next].focus();
+      }
+    });
+
+    document.getElementById("close-preview").addEventListener("click", () => {
+      overlay.hidden = true;
+      if (lastFocus) lastFocus.focus();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+{
+  "runs": [
+    {
+      "run_id": "run-official-tc1",
+      "created_at": "2026-10-22T15:47:53.465Z",
+      "target_level": "WCAG2.2-AA",
+      "status": "awaiting_approval",
+      "config_json": {
+        "urls": [
+          "http://127.0.0.1:61281/modal.html"
+        ],
+        "target_level": "WCAG2.2-AA",
+        "max_pages": 1,
+        "allowed_hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "trigger_source": "local",
+      "plan_json": [
+        {
+          "check": "fetch",
+          "scope": "page",
+          "reason": "static fetch first (Cheerio); escalate to a Playwright render only if the body looks like an empty JS app shell"
+        },
+        {
+          "check": "axe",
+          "scope": "page",
+          "reason": "baseline automated sweep at WCAG2.2-AA; axe 'incomplete' results become uncertain findings"
+        },
+        {
+          "check": "keyboard_walk",
+          "scope": "page",
+          "reason": "run when the rendered page has interactive elements; traces Tab/Shift+Tab/Escape and checks focus visibility"
+        },
+        {
+          "check": "modal_trap_walk",
+          "scope": "page",
+          "reason": "deep trap walk only when modal markers, forms or custom widgets are detected (condition evaluated post-render)"
+        },
+        {
+          "check": "contrast_sample",
+          "scope": "page",
+          "reason": "sample contrast against real background pixels wherever text sits over a background image (evaluated post-render)"
+        },
+        {
+          "check": "heuristics",
+          "scope": "page",
+          "reason": "deterministic manual-style checks that scanners pass: generic link text, focus visibility"
+        }
+      ]
+    }
+  ],
+  "page_inputs": [
+    {
+      "input_id": "pg-run-official-tc1-01",
+      "run_id": "run-official-tc1",
+      "url": "http://127.0.0.1:61281/modal.html",
+      "validation_status": "valid"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src-24c2e449",
+      "input_id": "pg-run-official-tc1-01",
+      "url": "http://127.0.0.1:61281/modal.html",
+      "retrieved_at": "2026-10-22T15:47:53.940Z",
+      "http_status": 200,
+      "fetch_method": "cheerio",
+      "content_hash": "9676a0520f34ed76fc9dd1b51c4427e84598987ddc1343fe3011dd0b5c254794",
+      "snapshot_path": "evidence/1792684074029-snapshot-01.html"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "find-90c2d157",
+      "input_id": "pg-run-official-tc1-01",
+      "source_id": "src-24c2e449",
+      "rule_id": "focus-indicator-removed",
+      "wcag_criterion": "2.4.7",
+      "selector": "a:nth-of-type(9)",
+      "check_type": "heuristic",
+      "state": "fail",
+      "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <a> (\"View the full rental policy\") pointing to \"index.html\" (WCAG 2.4.7)",
+      "evidence_ids": [
+        "ev-af296195"
+      ],
+      "run_id": "run-official-tc1"
+    },
+    {
+      "finding_id": "find-ba0674cb",
+      "input_id": "pg-run-official-tc1-01",
+      "source_id": "src-24c2e449",
+      "rule_id": "focus-indicator-removed",
+      "wcag_criterion": "2.4.7",
+      "selector": "button#close-preview",
+      "check_type": "heuristic",
+      "state": "fail",
+      "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Close preview\") (WCAG 2.4.7)",
+      "evidence_ids": [
+        "ev-af296195"
+      ],
+      "run_id": "run-official-tc1"
+    },
+    {
+      "finding_id": "find-4b4156a1",
+      "input_id": "pg-run-official-tc1-01",
+      "source_id": "src-24c2e449",
+      "rule_id": "keyboard-trap",
+      "wcag_criterion": "2.1.2",
+      "selector": "dialog, [role='dialog']",
+      "check_type": "keyboard",
+      "state": "fail",
+      "reason": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no.",
+      "evidence_ids": [
+        "ev-c8bb6249",
+        "ev-d5988691",
+        "ev-c3207579",
+        "ev-794d6567",
+        "ev-0e4e7358",
+        "ev-d423517c"
+      ],
+      "run_id": "run-official-tc1"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "dec-729525a5",
+      "finding_id": "find-90c2d157",
+      "input_id": "pg-run-official-tc1-01",
+      "outcome": "fail",
+      "rule": "focus-indicator-removed",
+      "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <a> (\"View the full rental policy\") pointing to \"index.html\" (WCAG 2.4.7)",
+      "input_evidence_ids": [
+        "ev-af296195"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    },
+    {
+      "decision_id": "dec-aceea8d7",
+      "finding_id": "find-ba0674cb",
+      "input_id": "pg-run-official-tc1-01",
+      "outcome": "fail",
+      "rule": "focus-indicator-removed",
+      "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Close preview\") (WCAG 2.4.7)",
+      "input_evidence_ids": [
+        "ev-af296195"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    },
+    {
+      "decision_id": "dec-6698004a",
+      "finding_id": "find-4b4156a1",
+      "input_id": "pg-run-official-tc1-01",
+      "outcome": "fail",
+      "rule": "keyboard-trap",
+      "reason": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no.",
+      "input_evidence_ids": [
+        "ev-c8bb6249",
+        "ev-d5988691",
+        "ev-c3207579",
+        "ev-794d6567",
+        "ev-0e4e7358",
+        "ev-d423517c"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-af296195",
+      "type": "dom_snippet",
+      "path": "evidence/1792684074029-snapshot-01.html",
+      "checksum": "9676a0520f34ed76fc9dd1b51c4427e84598987ddc1343fe3011dd0b5c254794",
+      "created_at": "2026-10-22T15:47:54.033Z"
+    },
+    {
+      "evidence_id": "ev-54df7d89",
+      "type": "axe_report",
+      "path": "evidence/1792684074376-axe-01.json",
+      "checksum": "8632417eb20d74ece252400f51f5ab3b676a611c4ed23a4bd9f7a835e11f6127",
+      "created_at": "2026-10-22T15:47:54.385Z"
+    },
+    {
+      "evidence_id": "ev-c8bb6249",
+      "type": "keystroke_trace",
+      "path": "evidence/1792684075987-keyboard-trace-01.json",
+      "checksum": "cad9a0e6c31cf0048800f83a431667bc0d6390893dca2b96bc13f719f66b4811",
+      "created_at": "2026-10-22T15:47:55.990Z"
+    },
+    {
+      "evidence_id": "ev-d5988691",
+      "type": "video",
+      "path": "evidence/1792684075995-keyboard-walk-01.webm",
+      "checksum": "a922e82e82d174603440d444fb2c13e2db0e4766b8ba5d24835253889ef410d7",
+      "created_at": "2026-10-22T15:47:55.998Z"
+    },
+    {
+      "evidence_id": "ev-c3207579",
+      "type": "screenshot",
+      "path": "evidence/1792684076001-keyboard-keyframe-1-01.png",
+      "checksum": "a82616e343fe4daf6104569c1659bb7f726af1995e4a95971f05a26debf961f8",
+      "created_at": "2026-10-22T15:47:56.002Z"
+    },
+    {
+      "evidence_id": "ev-794d6567",
+      "type": "screenshot",
+      "path": "evidence/1792684076003-keyboard-keyframe-2-01.png",
+      "checksum": "afa6f945216e7ad836608cbafa1cba1669948142b2b625286a4c6e62fdbf6c22",
+      "created_at": "2026-10-22T15:47:56.004Z"
+    },
+    {
+      "evidence_id": "ev-0e4e7358",
+      "type": "screenshot",
+      "path": "evidence/1792684076007-keyboard-keyframe-3-01.png",
+      "checksum": "2c2dc1aa80cca19e8f0305b18e26db6eec3e1e58dac6c52837e0bc3b6ff93687",
+      "created_at": "2026-10-22T15:47:56.008Z"
+    },
+    {
+      "evidence_id": "ev-d423517c",
+      "type": "screenshot",
+      "path": "evidence/1792684076011-keyboard-keyframe-4-01.png",
+      "checksum": "2c2dc1aa80cca19e8f0305b18e26db6eec3e1e58dac6c52837e0bc3b6ff93687",
+      "created_at": "2026-10-22T15:47:56.013Z"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "act-b93c42f0",
+      "idempotency_key": "e71b678032f4878fdb4794a66994e3873c71be59aa2b54af97c8dadcb44aab30",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-90c2d157",
+        "title": "focus-indicator-removed failure at a:nth-of-type(9)",
+        "description": "Focus indicator explicitly removed (outline: none/0) on interactive <a> (\"View the full rental policy\") pointing to \"index.html\" (WCAG 2.4.7)",
+        "wcag_criterion": "2.4.7",
+        "severity": "serious"
+      },
+      "status": "proposed",
+      "created_at": "2026-10-22T15:47:56.105Z"
+    },
+    {
+      "action_id": "act-e5302c9f",
+      "idempotency_key": "a2d195e184638115b2691c2c7de83c5d6e119761a543bdd93d126e508ccb9ddb",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-ba0674cb",
+        "title": "focus-indicator-removed failure at button#close-preview",
+        "description": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Close preview\") (WCAG 2.4.7)",
+        "wcag_criterion": "2.4.7",
+        "severity": "serious"
+      },
+      "status": "proposed",
+      "created_at": "2026-10-22T15:47:56.107Z"
+    },
+    {
+      "action_id": "act-69817400",
+      "idempotency_key": "64f18a060e50d0ea267709322f98a0645980a104b1a5ec68a82c09dfc247e556",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-4b4156a1",
+        "title": "keyboard-trap failure at dialog, [role='dialog']",
+        "description": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no.",
+        "wcag_criterion": "2.1.2",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-22T15:47:56.109Z",
+      "executed_at": "2026-10-22T15:47:56.121Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "apr-af59da13",
+      "action_id": "act-69817400",
+      "decision": "approve",
+      "approver": "Lead Auditor Jane",
+      "reason": "Verified focus trap on video and trace",
+      "approved_at": "2026-10-22T15:47:56.118Z"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "issue-7fd56411",
+      "finding_id": "find-4b4156a1",
+      "action_id": "act-69817400",
+      "title": "keyboard-trap failure at dialog, [role='dialog']",
+      "description": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no.",
+      "wcag_criterion": "2.1.2",
+      "severity": "serious",
+      "status": "open"
+    }
+  ],
+  "retests": []
+}

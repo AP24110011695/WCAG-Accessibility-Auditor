@@ -1,0 +1,23 @@
+{
+  "name": "agent",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "audit": "node src/cli.ts",
+    "serve": "node src/server.ts",
+    "official:runs": "node src/official_runs.ts",
+    "fixtures:check": "node --test test/checks.test.mjs",
+    "evidence:export": "node src/export.ts",
+    "evidence:verify": "node src/verify_evidence.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "axe-core": "^4.14.0",
+    "cheerio": "^1.2.0",
+    "playwright": "^1.64.1"
+  }
+}

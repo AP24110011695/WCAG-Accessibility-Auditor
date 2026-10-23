@@ -1,0 +1,48 @@
+name: Audit Worker
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Audit Run ID to execute"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Execute Audit Run
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium & dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Audit Orchestrator
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          MAX_PAGES_PER_RUN: ${{ secrets.MAX_PAGES_PER_RUN || '5' }}
+          LLM_PROVIDER: ${{ secrets.LLM_PROVIDER || 'groq' }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL || 'https://api.groq.com/openai/v1' }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL || 'llama-3.3-70b-versatile' }}
+          LLM_FALLBACK_BASE_URL: ${{ secrets.LLM_FALLBACK_BASE_URL || 'https://generativelanguage.googleapis.com/v1beta/openai/' }}
+          LLM_FALLBACK_API_KEY: ${{ secrets.LLM_FALLBACK_API_KEY }}
+          LLM_FALLBACK_MODEL: ${{ secrets.LLM_FALLBACK_MODEL || 'gemini-2.5-flash' }}
+        run: npm run audit -- --run "${{ inputs.run_id }}"

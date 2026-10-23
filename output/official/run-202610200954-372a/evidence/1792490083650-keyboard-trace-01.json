@@ -1,0 +1,47 @@
+[
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.015Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.221Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.248Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.275Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.297Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.330Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.357Z",
+    "activeElementPath": "form > div.field > input#name"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.381Z",
+    "activeElementPath": "form > div.field > input#email"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-20T09:54:43.393Z",
+    "activeElementPath": "main > form > button.btn"
+  }
+]

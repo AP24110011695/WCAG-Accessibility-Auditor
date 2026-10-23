@@ -1,0 +1,19 @@
+{
+  "name": "sunflower-audit",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "agent",
+    "web"
+  ],
+  "scripts": {
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "dev": "npm run dev --workspace web",
+    "audit": "npm run audit --workspace agent --",
+    "official:runs": "npm run official:runs --workspace agent",
+    "fixtures:check": "npm run fixtures:check --workspace agent",
+    "evidence:export": "npm run evidence:export --workspace agent",
+    "evidence:verify": "npm run evidence:verify --workspace agent"
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "runs": [
+    {
+      "run_id": "run-official-tc3",
+      "created_at": "2026-10-22T15:47:57.521Z",
+      "target_level": "WCAG2.2-AA",
+      "status": "awaiting_approval",
+      "config_json": {
+        "urls": [
+          "http://127.0.0.1:61281/photo-hero.html"
+        ],
+        "target_level": "WCAG2.2-AA",
+        "max_pages": 1,
+        "allowed_hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "trigger_source": "local",
+      "plan_json": [
+        {
+          "check": "fetch",
+          "scope": "page",
+          "reason": "static fetch first (Cheerio); escalate to a Playwright render only if the body looks like an empty JS app shell"
+        },
+        {
+          "check": "axe",
+          "scope": "page",
+          "reason": "baseline automated sweep at WCAG2.2-AA; axe 'incomplete' results become uncertain findings"
+        },
+        {
+          "check": "keyboard_walk",
+          "scope": "page",
+          "reason": "run when the rendered page has interactive elements; traces Tab/Shift+Tab/Escape and checks focus visibility"
+        },
+        {
+          "check": "modal_trap_walk",
+          "scope": "page",
+          "reason": "deep trap walk only when modal markers, forms or custom widgets are detected (condition evaluated post-render)"
+        },
+        {
+          "check": "contrast_sample",
+          "scope": "page",
+          "reason": "sample contrast against real background pixels wherever text sits over a background image (evaluated post-render)"
+        },
+        {
+          "check": "heuristics",
+          "scope": "page",
+          "reason": "deterministic manual-style checks that scanners pass: generic link text, focus visibility"
+        }
+      ]
+    }
+  ],
+  "page_inputs": [
+    {
+      "input_id": "pg-run-official-tc3-01",
+      "run_id": "run-official-tc3",
+      "url": "http://127.0.0.1:61281/photo-hero.html",
+      "validation_status": "valid"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src-5cbd5df3",
+      "input_id": "pg-run-official-tc3-01",
+      "url": "http://127.0.0.1:61281/photo-hero.html",
+      "retrieved_at": "2026-10-22T15:47:57.751Z",
+      "http_status": 200,
+      "fetch_method": "cheerio",
+      "content_hash": "b0e1df549c5ba415e31acd384fa7217bde5d691c63982558f292d784732fa4e9",
+      "snapshot_path": "evidence/1792684077789-snapshot-01.html"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "find-9df88cb0",
+      "input_id": "pg-run-official-tc3-01",
+      "source_id": "src-5cbd5df3",
+      "rule_id": "color-contrast",
+      "wcag_criterion": "1.4.3",
+      "selector": ".hero-text",
+      "check_type": "axe",
+      "state": "uncertain",
+      "reason": "axe needs review — cannot determine Elements must meet minimum color contrast ratio thresholds automatically; manual/pixel measurement required",
+      "evidence_ids": [
+        "ev-c1a8569f"
+      ],
+      "run_id": "run-official-tc3"
+    },
+    {
+      "finding_id": "find-91a56703",
+      "input_id": "pg-run-official-tc3-01",
+      "source_id": "src-5cbd5df3",
+      "rule_id": "color-contrast-image",
+      "wcag_criterion": "1.4.3",
+      "selector": ".hero-text",
+      "check_type": "contrast",
+      "state": "fail",
+      "reason": "Measured text contrast ratio 1.36:1 (worst-case, mean 1.51:1) on real background pixels is below required 4.5:1 (text: \"Morning on the valley — calm water, empty ramps, and the whole river to yourself\")",
+      "evidence_ids": [
+        "ev-e5ecab57",
+        "ev-af806d84"
+      ],
+      "run_id": "run-official-tc3"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "dec-a955704c",
+      "finding_id": "find-9df88cb0",
+      "input_id": "pg-run-official-tc3-01",
+      "outcome": "uncertain",
+      "rule": "color-contrast",
+      "reason": "Automated engine flagged rule color-contrast as incomplete/needs review; specialized or manual test required",
+      "input_evidence_ids": [
+        "ev-c1a8569f"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    },
+    {
+      "decision_id": "dec-c3cce9c5",
+      "finding_id": "find-91a56703",
+      "input_id": "pg-run-official-tc3-01",
+      "outcome": "fail",
+      "rule": "color-contrast-image",
+      "reason": "Measured text contrast ratio 1.36:1 (worst-case, mean 1.51:1) on real background pixels is below required 4.5:1 (text: \"Morning on the valley — calm water, empty ramps, and the whole river to yourself\")",
+      "input_evidence_ids": [
+        "ev-e5ecab57",
+        "ev-af806d84"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-6ef32684",
+      "type": "dom_snippet",
+      "path": "evidence/1792684077789-snapshot-01.html",
+      "checksum": "b0e1df549c5ba415e31acd384fa7217bde5d691c63982558f292d784732fa4e9",
+      "created_at": "2026-10-22T15:47:57.791Z"
+    },
+    {
+      "evidence_id": "ev-c1a8569f",
+      "type": "axe_report",
+      "path": "evidence/1792684078070-axe-01.json",
+      "checksum": "322901699cecc62324fcf0de25262ce1ab5bc095fb3d0362fd5919fc4728e879",
+      "created_at": "2026-10-22T15:47:58.072Z"
+    },
+    {
+      "evidence_id": "ev-e5ecab57",
+      "type": "pixel_sample",
+      "path": "evidence/1792684078511-contrast-text-01.png",
+      "checksum": "b626cc0ba335a09daa8d995d7ef8a5057189628ae0b75f82088464ad3455c3e8",
+      "created_at": "2026-10-22T15:47:58.517Z",
+      "metadata": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "deviceScaleFactor": 1
+      }
+    },
+    {
+      "evidence_id": "ev-af806d84",
+      "type": "pixel_sample",
+      "path": "evidence/1792684078520-contrast-bg-01.png",
+      "checksum": "71e904ec97d2a87062512d67edb46c2d78c593a3c7b0cc33999f9a8f60eee181",
+      "created_at": "2026-10-22T15:47:58.521Z",
+      "metadata": {
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "deviceScaleFactor": 1
+      }
+    },
+    {
+      "evidence_id": "ev-929f9ef5",
+      "type": "keystroke_trace",
+      "path": "evidence/1792684079078-keyboard-trace-01.json",
+      "checksum": "915beb23ed1c84eda0aa8857eba264cfb6f13016cbb3d75213308acb7d52dbe2",
+      "created_at": "2026-10-22T15:47:59.080Z"
+    },
+    {
+      "evidence_id": "ev-3265dcc6",
+      "type": "video",
+      "path": "evidence/1792684079083-keyboard-walk-01.webm",
+      "checksum": "b2af2a306b11d90b3b36690118682e10bd0e124f22137c9de0d1c912d7efbbbb",
+      "created_at": "2026-10-22T15:47:59.084Z"
+    },
+    {
+      "evidence_id": "ev-f29d4148",
+      "type": "screenshot",
+      "path": "evidence/1792684079088-keyboard-keyframe-1-01.png",
+      "checksum": "8c4ea00839b6ff7bef0cf74de38c89e8d0569a3ec32db4b082e25fc1b10a119d",
+      "created_at": "2026-10-22T15:47:59.090Z"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "act-0c203851",
+      "idempotency_key": "20e41469d92805b030fcbe6c1444541efbb542e0d6005d4a76c6a2e6242bd7d1",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-91a56703",
+        "title": "color-contrast-image failure at .hero-text",
+        "description": "Measured text contrast ratio 1.36:1 (worst-case, mean 1.51:1) on real background pixels is below required 4.5:1 (text: \"Morning on the valley — calm water, empty ramps, and the whole river to yourself\")",
+        "wcag_criterion": "1.4.3",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-22T15:47:59.155Z",
+      "executed_at": "2026-10-22T15:47:59.166Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "apr-9fa8d30b",
+      "action_id": "act-0c203851",
+      "decision": "approve",
+      "approver": "Lead Auditor Jane",
+      "reason": "Verified pixel-sampled contrast failure on photo",
+      "approved_at": "2026-10-22T15:47:59.164Z"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "issue-30a341de",
+      "finding_id": "find-91a56703",
+      "action_id": "act-0c203851",
+      "title": "color-contrast-image failure at .hero-text",
+      "description": "Measured text contrast ratio 1.36:1 (worst-case, mean 1.51:1) on real background pixels is below required 4.5:1 (text: \"Morning on the valley — calm water, empty ramps, and the whole river to yourself\")",
+      "wcag_criterion": "1.4.3",
+      "severity": "serious",
+      "status": "open"
+    }
+  ],
+  "retests": []
+}

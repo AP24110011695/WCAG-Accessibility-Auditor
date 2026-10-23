@@ -1,0 +1,164 @@
+{
+  "runs": [
+    {
+      "run_id": "run-202610201044-26d7",
+      "created_at": "2026-10-20T10:44:24.649Z",
+      "target_level": "WCAG2.2-AA",
+      "status": "awaiting_approval",
+      "config_json": {
+        "urls": [
+          "http://127.0.0.1:59648/form.html"
+        ],
+        "target_level": "WCAG2.2-AA",
+        "max_pages": 1,
+        "allowed_hosts": [
+          "127.0.0.1",
+          "localhost",
+          "example.com",
+          "sunflower-audit.github.io"
+        ]
+      },
+      "trigger_source": "local",
+      "plan_json": [
+        {
+          "check": "fetch",
+          "scope": "page",
+          "reason": "static fetch first (Cheerio); escalate to a Playwright render only if the body looks like an empty JS app shell"
+        },
+        {
+          "check": "axe",
+          "scope": "page",
+          "reason": "baseline automated sweep at WCAG2.2-AA; axe 'incomplete' results become uncertain findings"
+        },
+        {
+          "check": "keyboard_walk",
+          "scope": "page",
+          "reason": "run when the rendered page has interactive elements; traces Tab/Shift+Tab/Escape and checks focus visibility"
+        },
+        {
+          "check": "modal_trap_walk",
+          "scope": "page",
+          "reason": "deep trap walk only when modal markers, forms or custom widgets are detected (condition evaluated post-render)"
+        },
+        {
+          "check": "contrast_sample",
+          "scope": "page",
+          "reason": "sample contrast against real background pixels wherever text sits over a background image (evaluated post-render)"
+        },
+        {
+          "check": "heuristics",
+          "scope": "page",
+          "reason": "deterministic manual-style checks that scanners pass: generic link text, focus visibility"
+        }
+      ]
+    }
+  ],
+  "page_inputs": [
+    {
+      "input_id": "pg-run-202610201044-26d7-01",
+      "run_id": "run-202610201044-26d7",
+      "url": "http://127.0.0.1:59648/form.html",
+      "validation_status": "valid"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src-de15a1c0",
+      "input_id": "pg-run-202610201044-26d7-01",
+      "url": "http://127.0.0.1:59648/form.html",
+      "retrieved_at": "2026-10-20T10:44:24.936Z",
+      "http_status": 200,
+      "fetch_method": "cheerio",
+      "content_hash": "6b365ab28b3abcef741bcd3f1a82d1aeed93e5034c47a0fcbfded7731aa10d53",
+      "snapshot_path": "evidence/1792493064980-snapshot-01.html"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "find-d468d84c",
+      "input_id": "pg-run-202610201044-26d7-01",
+      "source_id": "src-de15a1c0",
+      "rule_id": "label",
+      "wcag_criterion": "4.1.2",
+      "selector": "#email",
+      "check_type": "axe",
+      "state": "fail",
+      "reason": "axe violation: Form elements must have labels (impact critical); 1 node(s)",
+      "evidence_ids": [
+        "ev-2ec0f817"
+      ],
+      "run_id": "run-202610201044-26d7"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "dec-0feb777a",
+      "finding_id": "find-d468d84c",
+      "input_id": "pg-run-202610201044-26d7-01",
+      "outcome": "fail",
+      "rule": "label",
+      "reason": "axe violation: Form elements must have labels (impact critical); 1 node(s)",
+      "input_evidence_ids": [
+        "ev-2ec0f817"
+      ],
+      "llm_involved": false,
+      "llm_status": "none"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-039d818e",
+      "type": "dom_snippet",
+      "path": "evidence/1792493064980-snapshot-01.html",
+      "checksum": "6b365ab28b3abcef741bcd3f1a82d1aeed93e5034c47a0fcbfded7731aa10d53",
+      "created_at": "2026-10-20T10:44:24.982Z"
+    },
+    {
+      "evidence_id": "ev-2ec0f817",
+      "type": "axe_report",
+      "path": "evidence/1792493065378-axe-01.json",
+      "checksum": "f8e19337e4c92120c1f3ae7a6758948f3bfcb0ab286cfe871f40d6392dca4ae0",
+      "created_at": "2026-10-20T10:44:25.380Z"
+    },
+    {
+      "evidence_id": "ev-5e747c59",
+      "type": "keystroke_trace",
+      "path": "evidence/1792493065974-keyboard-trace-01.json",
+      "checksum": "d255d89faeb090bde86e6a7439a22f0d0444d934eda1bca69ea7ce886b679fcb",
+      "created_at": "2026-10-20T10:44:26.005Z"
+    },
+    {
+      "evidence_id": "ev-df59ce46",
+      "type": "video",
+      "path": "evidence/1792493066009-keyboard-walk-01.webm",
+      "checksum": "03b639d7d21916c92223563527324d8cd3ee6279edd77086a05e791f93632bb2",
+      "created_at": "2026-10-20T10:44:26.011Z"
+    },
+    {
+      "evidence_id": "ev-75958484",
+      "type": "screenshot",
+      "path": "evidence/1792493066013-keyboard-keyframe-1-01.png",
+      "checksum": "1664b539934eb7b6f6f99152d951c2dd4572f6a7df3ad7ce727cb03f16bbbb20",
+      "created_at": "2026-10-20T10:44:26.014Z"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "act-3e150eb4",
+      "idempotency_key": "fcfc071050d10627b7c019c2afa0ae2884229246ca28edb56595cf9f817f8054",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-d468d84c",
+        "title": "label failure at #email",
+        "description": "axe violation: Form elements must have labels (impact critical); 1 node(s)",
+        "wcag_criterion": "4.1.2",
+        "severity": "serious"
+      },
+      "status": "proposed",
+      "created_at": "2026-10-20T10:44:26.099Z"
+    }
+  ],
+  "approvals": [],
+  "issues": [],
+  "retests": []
+}

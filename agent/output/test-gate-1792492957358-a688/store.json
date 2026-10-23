@@ -1,0 +1,66 @@
+{
+  "runs": [],
+  "page_inputs": [],
+  "sources": [],
+  "findings": [],
+  "decisions": [],
+  "evidence": [],
+  "actions": [
+    {
+      "action_id": "act-9ead1905",
+      "idempotency_key": "idem-key-12345",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-demo-01",
+        "title": "Missing label at #input",
+        "description": "Form control missing accessible label",
+        "wcag_criterion": "4.1.2",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-20T10:42:37.366Z",
+      "executed_at": "2026-10-20T10:42:37.393Z"
+    },
+    {
+      "action_id": "act-cad1f61e",
+      "idempotency_key": "idem-key-reject",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-demo-02"
+      },
+      "status": "rejected",
+      "created_at": "2026-10-20T10:42:37.375Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "apr-53436a5c",
+      "action_id": "act-cad1f61e",
+      "decision": "reject",
+      "approver": "Auditor Jane",
+      "reason": "False positive",
+      "approved_at": "2026-10-20T10:42:37.382Z"
+    },
+    {
+      "approval_id": "apr-e0588d27",
+      "action_id": "act-9ead1905",
+      "decision": "approve",
+      "approver": "Auditor John",
+      "reason": null,
+      "approved_at": "2026-10-20T10:42:37.388Z"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "issue-67354a99",
+      "finding_id": "find-demo-01",
+      "action_id": "act-9ead1905",
+      "title": "Missing label at #input",
+      "description": "Form control missing accessible label",
+      "wcag_criterion": "4.1.2",
+      "severity": "serious",
+      "status": "open"
+    }
+  ],
+  "retests": []
+}

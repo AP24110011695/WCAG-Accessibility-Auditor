@@ -1,0 +1,52 @@
+[
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:56.891Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:56.988Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:57.011Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:57.032Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:57.046Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:57.061Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:57.081Z",
+    "activeElementPath": "section > p > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:57.093Z",
+    "activeElementPath": "section > p > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:57.104Z",
+    "activeElementPath": "section > p > button.icon-btn"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:57.115Z",
+    "activeElementPath": "section > p > a"
+  }
+]

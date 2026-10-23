@@ -1,0 +1,365 @@
+{
+  "runs": [
+    {
+      "run_id": "run-official-tc2",
+      "created_at": "2026-10-22T15:47:56.129Z",
+      "target_level": "WCAG2.2-AA",
+      "status": "awaiting_approval",
+      "config_json": {
+        "urls": [
+          "http://127.0.0.1:61281/links.html"
+        ],
+        "target_level": "WCAG2.2-AA",
+        "max_pages": 1,
+        "allowed_hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "trigger_source": "local",
+      "plan_json": [
+        {
+          "check": "fetch",
+          "scope": "page",
+          "reason": "static fetch first (Cheerio); escalate to a Playwright render only if the body looks like an empty JS app shell"
+        },
+        {
+          "check": "axe",
+          "scope": "page",
+          "reason": "baseline automated sweep at WCAG2.2-AA; axe 'incomplete' results become uncertain findings"
+        },
+        {
+          "check": "keyboard_walk",
+          "scope": "page",
+          "reason": "run when the rendered page has interactive elements; traces Tab/Shift+Tab/Escape and checks focus visibility"
+        },
+        {
+          "check": "modal_trap_walk",
+          "scope": "page",
+          "reason": "deep trap walk only when modal markers, forms or custom widgets are detected (condition evaluated post-render)"
+        },
+        {
+          "check": "contrast_sample",
+          "scope": "page",
+          "reason": "sample contrast against real background pixels wherever text sits over a background image (evaluated post-render)"
+        },
+        {
+          "check": "heuristics",
+          "scope": "page",
+          "reason": "deterministic manual-style checks that scanners pass: generic link text, focus visibility"
+        }
+      ]
+    }
+  ],
+  "page_inputs": [
+    {
+      "input_id": "pg-run-official-tc2-01",
+      "run_id": "run-official-tc2",
+      "url": "http://127.0.0.1:61281/links.html",
+      "validation_status": "valid"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src-a3748c90",
+      "input_id": "pg-run-official-tc2-01",
+      "url": "http://127.0.0.1:61281/links.html",
+      "retrieved_at": "2026-10-22T15:47:56.367Z",
+      "http_status": 200,
+      "fetch_method": "cheerio",
+      "content_hash": "6a457ab5f70f90f1504cd43d061a32a6f36d3c04031da1712d772059314592c3",
+      "snapshot_path": "evidence/1792684076465-snapshot-01.html"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "find-174ba8c5",
+      "input_id": "pg-run-official-tc2-01",
+      "source_id": "src-a3748c90",
+      "rule_id": "generic-link-text",
+      "wcag_criterion": "2.4.4",
+      "selector": "section[aria-labelledby='water'] a[href='index.html']",
+      "check_type": "heuristic",
+      "state": "fail",
+      "reason": "Generic link text \"click here\" pointing to \"index.html\" provides no context out of flow (WCAG 2.4.4)",
+      "evidence_ids": [
+        "ev-f30df181"
+      ],
+      "run_id": "run-official-tc2"
+    },
+    {
+      "finding_id": "find-a102dfa8",
+      "input_id": "pg-run-official-tc2-01",
+      "source_id": "src-a3748c90",
+      "rule_id": "generic-link-text",
+      "wcag_criterion": "2.4.4",
+      "selector": "section[aria-labelledby='packlist'] a[href='form.html']",
+      "check_type": "heuristic",
+      "state": "fail",
+      "reason": "Generic link text \"read more\" pointing to \"form.html\" provides no context out of flow (WCAG 2.4.4)",
+      "evidence_ids": [
+        "ev-f30df181"
+      ],
+      "run_id": "run-official-tc2"
+    },
+    {
+      "finding_id": "find-adb1c2b6",
+      "input_id": "pg-run-official-tc2-01",
+      "source_id": "src-a3748c90",
+      "rule_id": "generic-link-text",
+      "wcag_criterion": "2.4.4",
+      "selector": "section[aria-labelledby='save'] a[href='index.html']",
+      "check_type": "heuristic",
+      "state": "fail",
+      "reason": "Generic link text \"learn more\" pointing to \"index.html\" provides no context out of flow (WCAG 2.4.4)",
+      "evidence_ids": [
+        "ev-f30df181"
+      ],
+      "run_id": "run-official-tc2"
+    },
+    {
+      "finding_id": "find-31968131",
+      "input_id": "pg-run-official-tc2-01",
+      "source_id": "src-a3748c90",
+      "rule_id": "focus-indicator-removed",
+      "wcag_criterion": "2.4.7",
+      "selector": "button.icon-btn[data-demo-bug='TC2-no-focus-indicator']",
+      "check_type": "heuristic",
+      "state": "fail",
+      "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Save trip plan\") (WCAG 2.4.7)",
+      "evidence_ids": [
+        "ev-f30df181"
+      ],
+      "run_id": "run-official-tc2"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "dec-6af4a875",
+      "finding_id": "find-174ba8c5",
+      "input_id": "pg-run-official-tc2-01",
+      "outcome": "fail",
+      "rule": "generic-link-text",
+      "reason": "Generic link text \"click here\" pointing to \"index.html\" provides no context out of flow (WCAG 2.4.4)",
+      "input_evidence_ids": [
+        "ev-f30df181"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    },
+    {
+      "decision_id": "dec-7c906c4e",
+      "finding_id": "find-a102dfa8",
+      "input_id": "pg-run-official-tc2-01",
+      "outcome": "fail",
+      "rule": "generic-link-text",
+      "reason": "Generic link text \"read more\" pointing to \"form.html\" provides no context out of flow (WCAG 2.4.4)",
+      "input_evidence_ids": [
+        "ev-f30df181"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    },
+    {
+      "decision_id": "dec-6c7aaf62",
+      "finding_id": "find-adb1c2b6",
+      "input_id": "pg-run-official-tc2-01",
+      "outcome": "fail",
+      "rule": "generic-link-text",
+      "reason": "Generic link text \"learn more\" pointing to \"index.html\" provides no context out of flow (WCAG 2.4.4)",
+      "input_evidence_ids": [
+        "ev-f30df181"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    },
+    {
+      "decision_id": "dec-b20b046d",
+      "finding_id": "find-31968131",
+      "input_id": "pg-run-official-tc2-01",
+      "outcome": "fail",
+      "rule": "focus-indicator-removed",
+      "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Save trip plan\") (WCAG 2.4.7)",
+      "input_evidence_ids": [
+        "ev-f30df181"
+      ],
+      "llm_involved": false,
+      "llm_status": "disabled"
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev-f30df181",
+      "type": "dom_snippet",
+      "path": "evidence/1792684076465-snapshot-01.html",
+      "checksum": "6a457ab5f70f90f1504cd43d061a32a6f36d3c04031da1712d772059314592c3",
+      "created_at": "2026-10-22T15:47:56.467Z"
+    },
+    {
+      "evidence_id": "ev-c708402f",
+      "type": "axe_report",
+      "path": "evidence/1792684076738-axe-01.json",
+      "checksum": "791226d20898080aa155842ae10fe54bc22c61098020bf9ecafb1f8bd9511136",
+      "created_at": "2026-10-22T15:47:56.741Z"
+    },
+    {
+      "evidence_id": "ev-3a05435d",
+      "type": "keystroke_trace",
+      "path": "evidence/1792684077348-keyboard-trace-01.json",
+      "checksum": "9a34a1043f35df2b18c0e265859784497b69189eacea55ed9f96537e0aafd0dc",
+      "created_at": "2026-10-22T15:47:57.352Z"
+    },
+    {
+      "evidence_id": "ev-fbfd0ad0",
+      "type": "video",
+      "path": "evidence/1792684077359-keyboard-walk-01.webm",
+      "checksum": "0ced0bda51b2d8b1b68b84cddc07b2de4cb40ce79743e1fe2454a7e4675f213b",
+      "created_at": "2026-10-22T15:47:57.361Z"
+    },
+    {
+      "evidence_id": "ev-49d040c4",
+      "type": "screenshot",
+      "path": "evidence/1792684077365-keyboard-keyframe-1-01.png",
+      "checksum": "49300e734a8d7b28256467cba11635f3bd985776a82932391486f6e152e63ede",
+      "created_at": "2026-10-22T15:47:57.367Z"
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "act-d51b1b5a",
+      "idempotency_key": "0c77c9980727719ce872e3590f85984e6e1d5792bef2d6b609fda804cc58fc47",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-174ba8c5",
+        "title": "generic-link-text failure at section[aria-labelledby='water'] a[href='index.html']",
+        "description": "Generic link text \"click here\" pointing to \"index.html\" provides no context out of flow (WCAG 2.4.4)",
+        "wcag_criterion": "2.4.4",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-22T15:47:57.462Z",
+      "executed_at": "2026-10-22T15:47:57.489Z"
+    },
+    {
+      "action_id": "act-73ca8694",
+      "idempotency_key": "18a4d18988fb2b7b1b5cf0728325be354f560a6a9e8e323f0e7b58c9461d0084",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-a102dfa8",
+        "title": "generic-link-text failure at section[aria-labelledby='packlist'] a[href='form.html']",
+        "description": "Generic link text \"read more\" pointing to \"form.html\" provides no context out of flow (WCAG 2.4.4)",
+        "wcag_criterion": "2.4.4",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-22T15:47:57.465Z",
+      "executed_at": "2026-10-22T15:47:57.497Z"
+    },
+    {
+      "action_id": "act-c8e28c94",
+      "idempotency_key": "38d46260fbc4d1264e3fe15767f5a6329ce0e1904c94555d7d083d7c4082ff3f",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-adb1c2b6",
+        "title": "generic-link-text failure at section[aria-labelledby='save'] a[href='index.html']",
+        "description": "Generic link text \"learn more\" pointing to \"index.html\" provides no context out of flow (WCAG 2.4.4)",
+        "wcag_criterion": "2.4.4",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-22T15:47:57.469Z",
+      "executed_at": "2026-10-22T15:47:57.505Z"
+    },
+    {
+      "action_id": "act-0da4052a",
+      "idempotency_key": "0bdba53ee98f9881870966cd3678f09f78a35e784ebd97e198e7ca754ec704a7",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-31968131",
+        "title": "focus-indicator-removed failure at button.icon-btn[data-demo-bug='TC2-no-focus-indicator']",
+        "description": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Save trip plan\") (WCAG 2.4.7)",
+        "wcag_criterion": "2.4.7",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-22T15:47:57.472Z",
+      "executed_at": "2026-10-22T15:47:57.511Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "apr-85a3b749",
+      "action_id": "act-d51b1b5a",
+      "decision": "approve",
+      "approver": "Lead Auditor Jane",
+      "reason": "Verified manual heuristic failures",
+      "approved_at": "2026-10-22T15:47:57.486Z"
+    },
+    {
+      "approval_id": "apr-4f08a8f9",
+      "action_id": "act-73ca8694",
+      "decision": "approve",
+      "approver": "Lead Auditor Jane",
+      "reason": "Verified manual heuristic failures",
+      "approved_at": "2026-10-22T15:47:57.493Z"
+    },
+    {
+      "approval_id": "apr-cf1e6d99",
+      "action_id": "act-c8e28c94",
+      "decision": "approve",
+      "approver": "Lead Auditor Jane",
+      "reason": "Verified manual heuristic failures",
+      "approved_at": "2026-10-22T15:47:57.501Z"
+    },
+    {
+      "approval_id": "apr-4a2eaf1d",
+      "action_id": "act-0da4052a",
+      "decision": "approve",
+      "approver": "Lead Auditor Jane",
+      "reason": "Verified manual heuristic failures",
+      "approved_at": "2026-10-22T15:47:57.508Z"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "issue-553591fe",
+      "finding_id": "find-174ba8c5",
+      "action_id": "act-d51b1b5a",
+      "title": "generic-link-text failure at section[aria-labelledby='water'] a[href='index.html']",
+      "description": "Generic link text \"click here\" pointing to \"index.html\" provides no context out of flow (WCAG 2.4.4)",
+      "wcag_criterion": "2.4.4",
+      "severity": "serious",
+      "status": "open"
+    },
+    {
+      "issue_id": "issue-1966d894",
+      "finding_id": "find-a102dfa8",
+      "action_id": "act-73ca8694",
+      "title": "generic-link-text failure at section[aria-labelledby='packlist'] a[href='form.html']",
+      "description": "Generic link text \"read more\" pointing to \"form.html\" provides no context out of flow (WCAG 2.4.4)",
+      "wcag_criterion": "2.4.4",
+      "severity": "serious",
+      "status": "open"
+    },
+    {
+      "issue_id": "issue-eee4ffd5",
+      "finding_id": "find-adb1c2b6",
+      "action_id": "act-c8e28c94",
+      "title": "generic-link-text failure at section[aria-labelledby='save'] a[href='index.html']",
+      "description": "Generic link text \"learn more\" pointing to \"index.html\" provides no context out of flow (WCAG 2.4.4)",
+      "wcag_criterion": "2.4.4",
+      "severity": "serious",
+      "status": "open"
+    },
+    {
+      "issue_id": "issue-0b1f3261",
+      "finding_id": "find-31968131",
+      "action_id": "act-0da4052a",
+      "title": "focus-indicator-removed failure at button.icon-btn[data-demo-bug='TC2-no-focus-indicator']",
+      "description": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Save trip plan\") (WCAG 2.4.7)",
+      "wcag_criterion": "2.4.7",
+      "severity": "serious",
+      "status": "open"
+    }
+  ],
+  "retests": []
+}

@@ -1,0 +1,65 @@
+:root {
+  /* colour */
+  --color-bg: #FAF7F0;
+  --color-surface: #FFFFFF;
+  --color-surface-sunken: #F1EBDD;
+  --color-ink: #1C1917;
+  --color-ink-muted: #57534E;
+  --color-border: #E4DCC9;
+  --color-border-strong: #C9BFA6;
+  --color-accent: #3D6B35;
+  --color-accent-soft: #EAF3EC;
+  --color-gold: #E9A820; /* decorative only, aria-hidden */
+  --color-fail: #B3261E;  --color-fail-bg: #FBEDEB;
+  --color-uncertain: #8A5A00; --color-uncertain-bg: #FAF3E3;
+  --color-pass: #256B44;  --color-pass-bg: #EAF3EC;
+
+  /* typography */
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --text-xs: 0.75rem;   --lh-xs: 1rem;
+  --text-sm: 0.875rem;  --lh-sm: 1.35;
+  --text-base: 1rem;    --lh-base: 1.625;
+  --text-md: 1.125rem;  --lh-md: 1.55;
+  --text-lg: 1.375rem;  --lh-lg: 1.25;
+  --text-xl: 1.75rem;   --lh-xl: 1.2;
+  --text-2xl: 2.25rem;  --lh-2xl: 1.15;
+  --text-3xl: 3rem;     --lh-3xl: 1.05;
+  --ls-tight: -0.01em;
+  --ls-label: 0.08em;
+
+  /* spacing (4px base) */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
+  --space-9: 96px;
+
+  /* shape & elevation */
+  --radius-sm: 2px; --radius-md: 4px; --radius-full: 999px;
+  --border-width: 1px;
+  --shadow-overlay: 0 8px 24px rgba(28, 25, 23, 0.12);
+
+  /* layout */
+  --grid-max: 1120px; --grid-gutter: 24px; --measure: 68ch;
+
+  /* motion */
+  --motion-fast: 130ms ease-out;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--lh-base);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

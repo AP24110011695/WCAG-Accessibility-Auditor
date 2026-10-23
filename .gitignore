@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+Thumbs.db
+
+# Output directory: ignore everything by default, un-ignore official runs & evidence pack
+output/*
+!output/official/
+!output/evidence-pack/
+
+# Staging directory: reusable verification/fixture scripts only (documented in README §Verification)
+.staging/*
+!.staging/verify-demo.mjs
+!.staging/make-scenery.mjs
+!.staging/verify-fonts.mjs
+!.staging/scan_secrets.mjs
+!.staging/self_audit_three_states.mjs

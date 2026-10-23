@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form demo — Riverbend Supply Co.</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header>
+    <span class="brand">Riverbend Supply Co.</span>
+    <nav aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="modal.html">Modal demo</a>
+      <a href="links.html">Links demo</a>
+      <a href="photo-hero.html">Photo hero</a>
+      <a href="form.html">Form demo</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Newsletter signup</h1>
+    <p>One email a week during the season: stock arrivals, water levels and
+       trip openings. Unsubscribe any time.</p>
+
+    <form action="#" method="post">
+      <div class="field">
+        <label for="name">Your name</label>
+        <input type="text" id="name" name="name" autocomplete="name" />
+      </div>
+      <div class="field" data-demo-bug="TC4-unlabelled-input">
+        <span class="label-text">Email address</span>
+        <input type="email" id="email" name="email" autocomplete="email" />
+      </div>
+      <button type="submit" class="btn">Subscribe</button>
+    </form>
+  </main>
+  <footer>
+    <p>Riverbend Supply Co., 12 Mill Street. Open Tuesday to Sunday, 9am to 6pm.</p>
+  </footer>
+</body>
+</html>

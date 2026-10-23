@@ -1,0 +1,62 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Dashboard
+        env:
+          VITE_DATA_PROVIDER: "supabase"
+          VITE_BASE: "/${{ github.event.repository.name }}/"
+          # Public-by-design values only: the project URL and the publishable
+          # (or legacy anon) key. They come from plain repository variables.
+          VITE_SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+        run: npm run build --workspace web
+
+      - name: Assemble Pages Bundle
+        run: |
+          mkdir -p _site
+          # Copy built dashboard to root
+          cp -r web/dist/* _site/
+          # Copy demo site fixtures to /demo
+          mkdir -p _site/demo
+          cp -r demo-site/* _site/demo/
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

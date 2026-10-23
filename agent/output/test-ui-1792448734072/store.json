@@ -1,0 +1,131 @@
+{
+  "runs": [
+    {
+      "run_id": "test-ui-1792448734072",
+      "created_at": "2026-10-19T22:25:34.084Z",
+      "target_level": "WCAG2.2-AA",
+      "status": "awaiting_approval",
+      "config_json": {
+        "urls": [
+          "http://127.0.0.1/demo/modal.html"
+        ],
+        "target_level": "WCAG2.2-AA",
+        "max_pages": 1,
+        "allowed_hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "trigger_source": "local",
+      "plan_json": [
+        {
+          "check": "fetch",
+          "scope": "page",
+          "reason": "static fetch"
+        },
+        {
+          "check": "axe",
+          "scope": "page",
+          "reason": "automated sweep"
+        },
+        {
+          "check": "keyboard_walk",
+          "scope": "page",
+          "reason": "keyboard trap check"
+        }
+      ]
+    }
+  ],
+  "page_inputs": [
+    {
+      "input_id": "pg-test-ui-1792448734072-01",
+      "run_id": "test-ui-1792448734072",
+      "url": "http://127.0.0.1/demo/modal.html",
+      "validation_status": "valid"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "src-95a18609",
+      "input_id": "pg-test-ui-1792448734072-01",
+      "url": "http://127.0.0.1/demo/modal.html",
+      "retrieved_at": "2026-10-19T22:25:34.107Z",
+      "http_status": 200,
+      "fetch_method": "cheerio",
+      "content_hash": "abcd",
+      "snapshot_path": "evidence/snap.html"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "find-8d050c1f",
+      "input_id": "pg-test-ui-1792448734072-01",
+      "source_id": "src-95a18609",
+      "rule_id": "keyboard-trap",
+      "wcag_criterion": "2.1.2",
+      "selector": "dialog[role='dialog']",
+      "check_type": "keyboard",
+      "state": "fail",
+      "reason": "Focus trapped inside modal for 3 complete cycles while outside elements exist",
+      "evidence_ids": [
+        "ev-trace-01"
+      ],
+      "run_id": "test-ui-1792448734072"
+    }
+  ],
+  "decisions": [
+    {
+      "decision_id": "dec-test-ui-1792448734072",
+      "finding_id": "find-8d050c1f",
+      "input_id": "pg-test-ui-1792448734072-01",
+      "outcome": "fail",
+      "rule": "keyboard-trap",
+      "reason": "Focus trapped inside modal for 3 complete cycles while outside elements exist",
+      "input_evidence_ids": [
+        "ev-trace-01"
+      ],
+      "llm_involved": false,
+      "llm_status": "none"
+    }
+  ],
+  "evidence": [],
+  "actions": [
+    {
+      "action_id": "act-b00bb671",
+      "idempotency_key": "idem-test-ui-1792448734072",
+      "action_type": "log_issue",
+      "payload_json": {
+        "finding_id": "find-8d050c1f",
+        "title": "keyboard-trap failure at dialog",
+        "description": "Focus trapped inside modal for 3 complete cycles while outside elements exist",
+        "wcag_criterion": "2.1.2",
+        "severity": "serious"
+      },
+      "status": "executed",
+      "created_at": "2026-10-19T22:25:34.145Z",
+      "executed_at": "2026-10-19T22:25:37.588Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approval_id": "apr-8274b550",
+      "action_id": "act-b00bb671",
+      "decision": "approve",
+      "approver": "Lead Auditor Jane",
+      "reason": null,
+      "approved_at": "2026-10-19T22:25:37.570Z"
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "issue-7ff73531",
+      "finding_id": "find-8d050c1f",
+      "action_id": "act-b00bb671",
+      "title": "keyboard-trap failure at dialog",
+      "description": "Focus trapped inside modal for 3 complete cycles while outside elements exist",
+      "wcag_criterion": "2.1.2",
+      "severity": "serious",
+      "status": "open"
+    }
+  ],
+  "retests": []
+}

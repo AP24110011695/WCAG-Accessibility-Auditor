@@ -1,0 +1,47 @@
+[
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:54.602Z",
+    "activeElementPath": "header > nav > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:55.206Z",
+    "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:55.215Z",
+    "activeElementPath": "div.dialog > p > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:55.229Z",
+    "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:55.242Z",
+    "activeElementPath": "div.dialog > p > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:55.258Z",
+    "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:55.273Z",
+    "activeElementPath": "div.dialog > p > a"
+  },
+  {
+    "key": "Tab",
+    "ts": "2026-10-22T15:47:55.285Z",
+    "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
+  },
+  {
+    "key": "Escape",
+    "ts": "2026-10-22T15:47:55.789Z",
+    "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
+  }
+]
