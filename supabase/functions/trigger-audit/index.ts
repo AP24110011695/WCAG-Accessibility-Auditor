@@ -94,6 +94,7 @@ function serviceKey(): string {
 function restHeaders(): Record<string, string> {
   return {
     "apikey": serviceKey(),
+    "authorization": `Bearer ${serviceKey()}`,
     "content-type": "application/json",
   };
 }
@@ -166,7 +167,7 @@ Deno.serve(async (req) => {
         run_id: runId,
         target_level: level,
         status: "pending",
-        config_json: { urls, target_level: level, max_pages: maxPages, allowed_hosts: allowedHosts() },
+        config_json: { urls, target_level: level, max_pages: Number(Deno.env.get("MAX_PAGES_PER_RUN") ?? 5), allowed_hosts: allowedHosts() },
         trigger_source: "edge_function",
       }),
     });
