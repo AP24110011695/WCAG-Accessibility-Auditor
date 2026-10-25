@@ -23,7 +23,7 @@ function serviceKey(): string {
 
 function headers(): Record<string, string> {
   const key = serviceKey();
-  return { apikey: key, authorization: `Bearer ${key}`, "content-type": "application/json" };
+  return { apikey: key, "content-type": "application/json" };
 }
 
 Deno.serve(async (req) => {

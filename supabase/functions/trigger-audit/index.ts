@@ -90,7 +90,6 @@ function serviceKey(): string {
 function restHeaders(): Record<string, string> {
   return {
     "apikey": serviceKey(),
-    "authorization": `Bearer ${serviceKey()}`,
     "content-type": "application/json",
   };
 }
