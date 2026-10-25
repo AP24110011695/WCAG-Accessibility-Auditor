@@ -24,8 +24,16 @@ const json = (body: unknown, status: number, extraHeaders: Record<string, string
 function corsHeaders(req: Request): Record<string, string> {
   const allowed = (Deno.env.get("ALLOWED_ORIGINS") ?? "").split(",").map((s) => s.trim()).filter(Boolean);
   const origin = req.headers.get("origin") ?? "";
+  // Browsers reject a preflight unless methods and headers are explicitly
+  // allowed — allow-origin alone is not sufficient.
   return origin && allowed.includes(origin)
-    ? { "access-control-allow-origin": origin, "vary": "Origin" }
+    ? {
+        "access-control-allow-origin": origin,
+        "access-control-allow-methods": "POST, OPTIONS",
+        "access-control-allow-headers": "apikey, authorization, content-type",
+        "access-control-max-age": "86400",
+        "vary": "Origin",
+      }
     : {};
 }
 

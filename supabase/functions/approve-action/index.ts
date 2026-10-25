@@ -4,7 +4,16 @@ import { approvePasscode } from "../../../agent/src/approval.ts";
 function cors(req: Request): Record<string, string> {
   const origin = req.headers.get("origin") ?? "";
   const allowed = (Deno.env.get("ALLOWED_ORIGINS") ?? "").split(",").map((v) => v.trim());
-  return origin && allowed.includes(origin) ? { "access-control-allow-origin": origin, vary: "Origin" } : {};
+  // Browsers reject a preflight unless methods and headers are explicitly allowed.
+  return origin && allowed.includes(origin)
+    ? {
+        "access-control-allow-origin": origin,
+        "access-control-allow-methods": "POST, OPTIONS",
+        "access-control-allow-headers": "apikey, authorization, content-type",
+        "access-control-max-age": "86400",
+        "vary": "Origin",
+      }
+    : {};
 }
 const json = (body: unknown, status: number, extra: Record<string, string> = {}) => new Response(JSON.stringify(body), {
   status,
