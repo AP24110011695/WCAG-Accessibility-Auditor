@@ -95,7 +95,9 @@ export class SupabaseStore implements AuditStore {
   }
 
   async addDecision(row: Omit<DecisionRow, "decision_id">): Promise<DecisionRow> {
-    const full: DecisionRow = { decision_id: newId("dec"), ...row };
+    // The Postgres column is integer; decideFinding may produce a boolean.
+    const llmFlag = typeof row.llm_involved === "boolean" ? (row.llm_involved ? 1 : 0) : Number(row.llm_involved ?? 0);
+    const full: DecisionRow = { decision_id: newId("dec"), ...row, llm_involved: llmFlag };
     const res = await fetch(`${this.baseUrl}/rest/v1/decisions`, {
       method: "POST",
       headers: this.headers("return=representation"),
