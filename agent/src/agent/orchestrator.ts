@@ -138,6 +138,9 @@ async function loadPage(browser: Browser, input: PageInputRow): Promise<LoadedPa
   const page = await browser.newPage({
     viewport: STANDARD_VIEWPORT,
     deviceScaleFactor: STANDARD_DEVICE_SCALE_FACTOR,
+    // Hosts like GitHub Pages send a strict CSP (default-src 'none') that blocks
+    // the axe-core script injection; the audit context must bypass it.
+    bypassCSP: true,
   });
   const stat = await staticFetch(input.url);
   if (looksJsRendered(stat.html)) {
