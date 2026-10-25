@@ -1,47 +1,47 @@
 [
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:59.892Z",
+    "ts": "2026-10-25T09:19:32.446Z",
     "activeElementPath": "header > nav > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:48:00.008Z",
+    "ts": "2026-10-25T09:19:32.556Z",
     "activeElementPath": "header > nav > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:48:00.026Z",
+    "ts": "2026-10-25T09:19:32.567Z",
     "activeElementPath": "header > nav > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:48:00.048Z",
+    "ts": "2026-10-25T09:19:32.588Z",
     "activeElementPath": "header > nav > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:48:00.065Z",
+    "ts": "2026-10-25T09:19:32.601Z",
     "activeElementPath": "header > nav > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:48:00.074Z",
+    "ts": "2026-10-25T09:19:32.615Z",
     "activeElementPath": "header > nav > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:48:00.096Z",
+    "ts": "2026-10-25T09:19:32.627Z",
     "activeElementPath": "form > div.field > input#name"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:48:00.106Z",
+    "ts": "2026-10-25T09:19:32.637Z",
     "activeElementPath": "form > div.field > input#email"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:48:00.118Z",
+    "ts": "2026-10-25T09:19:32.647Z",
     "activeElementPath": "main > form > button.btn"
   }
 ]

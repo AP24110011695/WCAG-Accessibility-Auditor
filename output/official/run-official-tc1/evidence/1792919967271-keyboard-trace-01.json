@@ -1,47 +1,47 @@
 [
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:54.602Z",
+    "ts": "2026-10-25T09:19:25.853Z",
     "activeElementPath": "header > nav > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:55.206Z",
+    "ts": "2026-10-25T09:19:26.430Z",
     "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:55.215Z",
+    "ts": "2026-10-25T09:19:26.439Z",
     "activeElementPath": "div.dialog > p > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:55.229Z",
+    "ts": "2026-10-25T09:19:26.451Z",
     "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:55.242Z",
+    "ts": "2026-10-25T09:19:26.466Z",
     "activeElementPath": "div.dialog > p > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:55.258Z",
+    "ts": "2026-10-25T09:19:26.481Z",
     "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:55.273Z",
+    "ts": "2026-10-25T09:19:26.498Z",
     "activeElementPath": "div.dialog > p > a"
   },
   {
     "key": "Tab",
-    "ts": "2026-10-22T15:47:55.285Z",
+    "ts": "2026-10-25T09:19:26.515Z",
     "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
   },
   {
     "key": "Escape",
-    "ts": "2026-10-22T15:47:55.789Z",
+    "ts": "2026-10-25T09:19:27.041Z",
     "activeElementPath": "div#overlay.overlay > div.dialog > button#close-preview.btn"
   }
 ]

@@ -2,12 +2,12 @@
   "runs": [
     {
       "run_id": "run-official-tc3",
-      "created_at": "2026-10-22T15:47:57.521Z",
+      "created_at": "2026-10-25T09:19:28.781Z",
       "target_level": "WCAG2.2-AA",
       "status": "awaiting_approval",
       "config_json": {
         "urls": [
-          "http://127.0.0.1:61281/photo-hero.html"
+          "http://127.0.0.1:58557/photo-hero.html"
         ],
         "target_level": "WCAG2.2-AA",
         "max_pages": 1,
@@ -54,27 +54,27 @@
     {
       "input_id": "pg-run-official-tc3-01",
       "run_id": "run-official-tc3",
-      "url": "http://127.0.0.1:61281/photo-hero.html",
+      "url": "http://127.0.0.1:58557/photo-hero.html",
       "validation_status": "valid"
     }
   ],
   "sources": [
     {
-      "source_id": "src-5cbd5df3",
+      "source_id": "src-d085f056",
       "input_id": "pg-run-official-tc3-01",
-      "url": "http://127.0.0.1:61281/photo-hero.html",
-      "retrieved_at": "2026-10-22T15:47:57.751Z",
+      "url": "http://127.0.0.1:58557/photo-hero.html",
+      "retrieved_at": "2026-10-25T09:19:29.014Z",
       "http_status": 200,
       "fetch_method": "cheerio",
       "content_hash": "b0e1df549c5ba415e31acd384fa7217bde5d691c63982558f292d784732fa4e9",
-      "snapshot_path": "evidence/1792684077789-snapshot-01.html"
+      "snapshot_path": "evidence/1792919969071-snapshot-01.html"
     }
   ],
   "findings": [
     {
-      "finding_id": "find-9df88cb0",
+      "finding_id": "find-7257223f",
       "input_id": "pg-run-official-tc3-01",
-      "source_id": "src-5cbd5df3",
+      "source_id": "src-d085f056",
       "rule_id": "color-contrast",
       "wcag_criterion": "1.4.3",
       "selector": ".hero-text",
@@ -82,14 +82,14 @@
       "state": "uncertain",
       "reason": "axe needs review — cannot determine Elements must meet minimum color contrast ratio thresholds automatically; manual/pixel measurement required",
       "evidence_ids": [
-        "ev-c1a8569f"
+        "ev-fac38975"
       ],
       "run_id": "run-official-tc3"
     },
     {
-      "finding_id": "find-91a56703",
+      "finding_id": "find-92d82f34",
       "input_id": "pg-run-official-tc3-01",
-      "source_id": "src-5cbd5df3",
+      "source_id": "src-d085f056",
       "rule_id": "color-contrast-image",
       "wcag_criterion": "1.4.3",
       "selector": ".hero-text",
@@ -97,36 +97,36 @@
       "state": "fail",
       "reason": "Measured text contrast ratio 1.36:1 (worst-case, mean 1.51:1) on real background pixels is below required 4.5:1 (text: \"Morning on the valley — calm water, empty ramps, and the whole river to yourself\")",
       "evidence_ids": [
-        "ev-e5ecab57",
-        "ev-af806d84"
+        "ev-43d62c56",
+        "ev-b6616ccd"
       ],
       "run_id": "run-official-tc3"
     }
   ],
   "decisions": [
     {
-      "decision_id": "dec-a955704c",
-      "finding_id": "find-9df88cb0",
+      "decision_id": "dec-daaba192",
+      "finding_id": "find-7257223f",
       "input_id": "pg-run-official-tc3-01",
       "outcome": "uncertain",
       "rule": "color-contrast",
       "reason": "Automated engine flagged rule color-contrast as incomplete/needs review; specialized or manual test required",
       "input_evidence_ids": [
-        "ev-c1a8569f"
+        "ev-fac38975"
       ],
       "llm_involved": false,
       "llm_status": "disabled"
     },
     {
-      "decision_id": "dec-c3cce9c5",
-      "finding_id": "find-91a56703",
+      "decision_id": "dec-af5ea8a3",
+      "finding_id": "find-92d82f34",
       "input_id": "pg-run-official-tc3-01",
       "outcome": "fail",
       "rule": "color-contrast-image",
       "reason": "Measured text contrast ratio 1.36:1 (worst-case, mean 1.51:1) on real background pixels is below required 4.5:1 (text: \"Morning on the valley — calm water, empty ramps, and the whole river to yourself\")",
       "input_evidence_ids": [
-        "ev-e5ecab57",
-        "ev-af806d84"
+        "ev-43d62c56",
+        "ev-b6616ccd"
       ],
       "llm_involved": false,
       "llm_status": "disabled"
@@ -134,25 +134,25 @@
   ],
   "evidence": [
     {
-      "evidence_id": "ev-6ef32684",
+      "evidence_id": "ev-8988005e",
       "type": "dom_snippet",
-      "path": "evidence/1792684077789-snapshot-01.html",
+      "path": "evidence/1792919969071-snapshot-01.html",
       "checksum": "b0e1df549c5ba415e31acd384fa7217bde5d691c63982558f292d784732fa4e9",
-      "created_at": "2026-10-22T15:47:57.791Z"
+      "created_at": "2026-10-25T09:19:29.073Z"
     },
     {
-      "evidence_id": "ev-c1a8569f",
+      "evidence_id": "ev-fac38975",
       "type": "axe_report",
-      "path": "evidence/1792684078070-axe-01.json",
+      "path": "evidence/1792919969333-axe-01.json",
       "checksum": "322901699cecc62324fcf0de25262ce1ab5bc095fb3d0362fd5919fc4728e879",
-      "created_at": "2026-10-22T15:47:58.072Z"
+      "created_at": "2026-10-25T09:19:29.335Z"
     },
     {
-      "evidence_id": "ev-e5ecab57",
+      "evidence_id": "ev-43d62c56",
       "type": "pixel_sample",
-      "path": "evidence/1792684078511-contrast-text-01.png",
+      "path": "evidence/1792919969749-contrast-text-01.png",
       "checksum": "b626cc0ba335a09daa8d995d7ef8a5057189628ae0b75f82088464ad3455c3e8",
-      "created_at": "2026-10-22T15:47:58.517Z",
+      "created_at": "2026-10-25T09:19:29.757Z",
       "metadata": {
         "viewport": {
           "width": 1280,
@@ -162,11 +162,11 @@
       }
     },
     {
-      "evidence_id": "ev-af806d84",
+      "evidence_id": "ev-b6616ccd",
       "type": "pixel_sample",
-      "path": "evidence/1792684078520-contrast-bg-01.png",
+      "path": "evidence/1792919969760-contrast-bg-01.png",
       "checksum": "71e904ec97d2a87062512d67edb46c2d78c593a3c7b0cc33999f9a8f60eee181",
-      "created_at": "2026-10-22T15:47:58.521Z",
+      "created_at": "2026-10-25T09:19:29.762Z",
       "metadata": {
         "viewport": {
           "width": 1280,
@@ -176,59 +176,59 @@
       }
     },
     {
-      "evidence_id": "ev-929f9ef5",
+      "evidence_id": "ev-21a513ef",
       "type": "keystroke_trace",
-      "path": "evidence/1792684079078-keyboard-trace-01.json",
-      "checksum": "915beb23ed1c84eda0aa8857eba264cfb6f13016cbb3d75213308acb7d52dbe2",
-      "created_at": "2026-10-22T15:47:59.080Z"
+      "path": "evidence/1792919970335-keyboard-trace-01.json",
+      "checksum": "0efb681decf8081e73430f88e3e3524ca35f9d606a5ae8a223745291581c73d5",
+      "created_at": "2026-10-25T09:19:30.338Z"
     },
     {
-      "evidence_id": "ev-3265dcc6",
+      "evidence_id": "ev-d763dd6a",
       "type": "video",
-      "path": "evidence/1792684079083-keyboard-walk-01.webm",
-      "checksum": "b2af2a306b11d90b3b36690118682e10bd0e124f22137c9de0d1c912d7efbbbb",
-      "created_at": "2026-10-22T15:47:59.084Z"
+      "path": "evidence/1792919970341-keyboard-walk-01.webm",
+      "checksum": "19da741800ba9321535ccfd2c4fbf3196f12a1d62e6a1f37166bfd66cba8a5cb",
+      "created_at": "2026-10-25T09:19:30.343Z"
     },
     {
-      "evidence_id": "ev-f29d4148",
+      "evidence_id": "ev-12d201db",
       "type": "screenshot",
-      "path": "evidence/1792684079088-keyboard-keyframe-1-01.png",
+      "path": "evidence/1792919970346-keyboard-keyframe-1-01.png",
       "checksum": "8c4ea00839b6ff7bef0cf74de38c89e8d0569a3ec32db4b082e25fc1b10a119d",
-      "created_at": "2026-10-22T15:47:59.090Z"
+      "created_at": "2026-10-25T09:19:30.348Z"
     }
   ],
   "actions": [
     {
-      "action_id": "act-0c203851",
-      "idempotency_key": "20e41469d92805b030fcbe6c1444541efbb542e0d6005d4a76c6a2e6242bd7d1",
+      "action_id": "act-f8eb824b",
+      "idempotency_key": "cc051c13a6b5235ec90e2ac36ecebc0965a3bb437b953439c2f07c496af8d202",
       "action_type": "log_issue",
       "payload_json": {
-        "finding_id": "find-91a56703",
+        "finding_id": "find-92d82f34",
         "title": "color-contrast-image failure at .hero-text",
         "description": "Measured text contrast ratio 1.36:1 (worst-case, mean 1.51:1) on real background pixels is below required 4.5:1 (text: \"Morning on the valley — calm water, empty ramps, and the whole river to yourself\")",
         "wcag_criterion": "1.4.3",
         "severity": "serious"
       },
       "status": "executed",
-      "created_at": "2026-10-22T15:47:59.155Z",
-      "executed_at": "2026-10-22T15:47:59.166Z"
+      "created_at": "2026-10-25T09:19:30.408Z",
+      "executed_at": "2026-10-25T09:19:30.420Z"
     }
   ],
   "approvals": [
     {
-      "approval_id": "apr-9fa8d30b",
-      "action_id": "act-0c203851",
+      "approval_id": "apr-996b36b4",
+      "action_id": "act-f8eb824b",
       "decision": "approve",
       "approver": "Lead Auditor Jane",
       "reason": "Verified pixel-sampled contrast failure on photo",
-      "approved_at": "2026-10-22T15:47:59.164Z"
+      "approved_at": "2026-10-25T09:19:30.416Z"
     }
   ],
   "issues": [
     {
-      "issue_id": "issue-30a341de",
-      "finding_id": "find-91a56703",
-      "action_id": "act-0c203851",
+      "issue_id": "issue-14685e8a",
+      "finding_id": "find-92d82f34",
+      "action_id": "act-f8eb824b",
       "title": "color-contrast-image failure at .hero-text",
       "description": "Measured text contrast ratio 1.36:1 (worst-case, mean 1.51:1) on real background pixels is below required 4.5:1 (text: \"Morning on the valley — calm water, empty ramps, and the whole river to yourself\")",
       "wcag_criterion": "1.4.3",

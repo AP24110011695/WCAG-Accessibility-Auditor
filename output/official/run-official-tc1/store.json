@@ -2,12 +2,12 @@
   "runs": [
     {
       "run_id": "run-official-tc1",
-      "created_at": "2026-10-22T15:47:53.465Z",
+      "created_at": "2026-10-25T09:19:24.757Z",
       "target_level": "WCAG2.2-AA",
       "status": "awaiting_approval",
       "config_json": {
         "urls": [
-          "http://127.0.0.1:61281/modal.html"
+          "http://127.0.0.1:58557/modal.html"
         ],
         "target_level": "WCAG2.2-AA",
         "max_pages": 1,
@@ -54,27 +54,27 @@
     {
       "input_id": "pg-run-official-tc1-01",
       "run_id": "run-official-tc1",
-      "url": "http://127.0.0.1:61281/modal.html",
+      "url": "http://127.0.0.1:58557/modal.html",
       "validation_status": "valid"
     }
   ],
   "sources": [
     {
-      "source_id": "src-24c2e449",
+      "source_id": "src-3774a47b",
       "input_id": "pg-run-official-tc1-01",
-      "url": "http://127.0.0.1:61281/modal.html",
-      "retrieved_at": "2026-10-22T15:47:53.940Z",
+      "url": "http://127.0.0.1:58557/modal.html",
+      "retrieved_at": "2026-10-25T09:19:25.166Z",
       "http_status": 200,
       "fetch_method": "cheerio",
       "content_hash": "9676a0520f34ed76fc9dd1b51c4427e84598987ddc1343fe3011dd0b5c254794",
-      "snapshot_path": "evidence/1792684074029-snapshot-01.html"
+      "snapshot_path": "evidence/1792919965345-snapshot-01.html"
     }
   ],
   "findings": [
     {
-      "finding_id": "find-90c2d157",
+      "finding_id": "find-89d909e7",
       "input_id": "pg-run-official-tc1-01",
-      "source_id": "src-24c2e449",
+      "source_id": "src-3774a47b",
       "rule_id": "focus-indicator-removed",
       "wcag_criterion": "2.4.7",
       "selector": "a:nth-of-type(9)",
@@ -82,14 +82,14 @@
       "state": "fail",
       "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <a> (\"View the full rental policy\") pointing to \"index.html\" (WCAG 2.4.7)",
       "evidence_ids": [
-        "ev-af296195"
+        "ev-3502e8c7"
       ],
       "run_id": "run-official-tc1"
     },
     {
-      "finding_id": "find-ba0674cb",
+      "finding_id": "find-43bcdaa0",
       "input_id": "pg-run-official-tc1-01",
-      "source_id": "src-24c2e449",
+      "source_id": "src-3774a47b",
       "rule_id": "focus-indicator-removed",
       "wcag_criterion": "2.4.7",
       "selector": "button#close-preview",
@@ -97,14 +97,14 @@
       "state": "fail",
       "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Close preview\") (WCAG 2.4.7)",
       "evidence_ids": [
-        "ev-af296195"
+        "ev-3502e8c7"
       ],
       "run_id": "run-official-tc1"
     },
     {
-      "finding_id": "find-4b4156a1",
+      "finding_id": "find-64b41e9e",
       "input_id": "pg-run-official-tc1-01",
-      "source_id": "src-24c2e449",
+      "source_id": "src-3774a47b",
       "rule_id": "keyboard-trap",
       "wcag_criterion": "2.1.2",
       "selector": "dialog, [role='dialog']",
@@ -112,57 +112,57 @@
       "state": "fail",
       "reason": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no.",
       "evidence_ids": [
-        "ev-c8bb6249",
-        "ev-d5988691",
-        "ev-c3207579",
-        "ev-794d6567",
-        "ev-0e4e7358",
-        "ev-d423517c"
+        "ev-325ce339",
+        "ev-1b7ebb88",
+        "ev-c873947b",
+        "ev-80163a0c",
+        "ev-6edbcd52",
+        "ev-485aefbc"
       ],
       "run_id": "run-official-tc1"
     }
   ],
   "decisions": [
     {
-      "decision_id": "dec-729525a5",
-      "finding_id": "find-90c2d157",
+      "decision_id": "dec-2321fbb6",
+      "finding_id": "find-89d909e7",
       "input_id": "pg-run-official-tc1-01",
       "outcome": "fail",
       "rule": "focus-indicator-removed",
       "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <a> (\"View the full rental policy\") pointing to \"index.html\" (WCAG 2.4.7)",
       "input_evidence_ids": [
-        "ev-af296195"
+        "ev-3502e8c7"
       ],
       "llm_involved": false,
       "llm_status": "disabled"
     },
     {
-      "decision_id": "dec-aceea8d7",
-      "finding_id": "find-ba0674cb",
+      "decision_id": "dec-c6856b5e",
+      "finding_id": "find-43bcdaa0",
       "input_id": "pg-run-official-tc1-01",
       "outcome": "fail",
       "rule": "focus-indicator-removed",
       "reason": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Close preview\") (WCAG 2.4.7)",
       "input_evidence_ids": [
-        "ev-af296195"
+        "ev-3502e8c7"
       ],
       "llm_involved": false,
       "llm_status": "disabled"
     },
     {
-      "decision_id": "dec-6698004a",
-      "finding_id": "find-4b4156a1",
+      "decision_id": "dec-e70df1f4",
+      "finding_id": "find-64b41e9e",
       "input_id": "pg-run-official-tc1-01",
       "outcome": "fail",
       "rule": "keyboard-trap",
       "reason": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no.",
       "input_evidence_ids": [
-        "ev-c8bb6249",
-        "ev-d5988691",
-        "ev-c3207579",
-        "ev-794d6567",
-        "ev-0e4e7358",
-        "ev-d423517c"
+        "ev-325ce339",
+        "ev-1b7ebb88",
+        "ev-c873947b",
+        "ev-80163a0c",
+        "ev-6edbcd52",
+        "ev-485aefbc"
       ],
       "llm_involved": false,
       "llm_status": "disabled"
@@ -170,122 +170,122 @@
   ],
   "evidence": [
     {
-      "evidence_id": "ev-af296195",
+      "evidence_id": "ev-3502e8c7",
       "type": "dom_snippet",
-      "path": "evidence/1792684074029-snapshot-01.html",
+      "path": "evidence/1792919965345-snapshot-01.html",
       "checksum": "9676a0520f34ed76fc9dd1b51c4427e84598987ddc1343fe3011dd0b5c254794",
-      "created_at": "2026-10-22T15:47:54.033Z"
+      "created_at": "2026-10-25T09:19:25.350Z"
     },
     {
-      "evidence_id": "ev-54df7d89",
+      "evidence_id": "ev-c33d9d2f",
       "type": "axe_report",
-      "path": "evidence/1792684074376-axe-01.json",
+      "path": "evidence/1792919965665-axe-01.json",
       "checksum": "8632417eb20d74ece252400f51f5ab3b676a611c4ed23a4bd9f7a835e11f6127",
-      "created_at": "2026-10-22T15:47:54.385Z"
+      "created_at": "2026-10-25T09:19:25.673Z"
     },
     {
-      "evidence_id": "ev-c8bb6249",
+      "evidence_id": "ev-325ce339",
       "type": "keystroke_trace",
-      "path": "evidence/1792684075987-keyboard-trace-01.json",
-      "checksum": "cad9a0e6c31cf0048800f83a431667bc0d6390893dca2b96bc13f719f66b4811",
-      "created_at": "2026-10-22T15:47:55.990Z"
+      "path": "evidence/1792919967271-keyboard-trace-01.json",
+      "checksum": "04f3f3f694fa441057320d0bd611d2031b53da82c661e2f2ac57584d8868cf65",
+      "created_at": "2026-10-25T09:19:27.274Z"
     },
     {
-      "evidence_id": "ev-d5988691",
+      "evidence_id": "ev-1b7ebb88",
       "type": "video",
-      "path": "evidence/1792684075995-keyboard-walk-01.webm",
-      "checksum": "a922e82e82d174603440d444fb2c13e2db0e4766b8ba5d24835253889ef410d7",
-      "created_at": "2026-10-22T15:47:55.998Z"
+      "path": "evidence/1792919967280-keyboard-walk-01.webm",
+      "checksum": "07d35e1b652f74d1c91851c08160f5858baf1254f0552dd69a07ac3b49861f41",
+      "created_at": "2026-10-25T09:19:27.284Z"
     },
     {
-      "evidence_id": "ev-c3207579",
+      "evidence_id": "ev-c873947b",
       "type": "screenshot",
-      "path": "evidence/1792684076001-keyboard-keyframe-1-01.png",
+      "path": "evidence/1792919967289-keyboard-keyframe-1-01.png",
       "checksum": "a82616e343fe4daf6104569c1659bb7f726af1995e4a95971f05a26debf961f8",
-      "created_at": "2026-10-22T15:47:56.002Z"
+      "created_at": "2026-10-25T09:19:27.291Z"
     },
     {
-      "evidence_id": "ev-794d6567",
+      "evidence_id": "ev-80163a0c",
       "type": "screenshot",
-      "path": "evidence/1792684076003-keyboard-keyframe-2-01.png",
+      "path": "evidence/1792919967294-keyboard-keyframe-2-01.png",
       "checksum": "afa6f945216e7ad836608cbafa1cba1669948142b2b625286a4c6e62fdbf6c22",
-      "created_at": "2026-10-22T15:47:56.004Z"
+      "created_at": "2026-10-25T09:19:27.296Z"
     },
     {
-      "evidence_id": "ev-0e4e7358",
+      "evidence_id": "ev-6edbcd52",
       "type": "screenshot",
-      "path": "evidence/1792684076007-keyboard-keyframe-3-01.png",
+      "path": "evidence/1792919967298-keyboard-keyframe-3-01.png",
       "checksum": "2c2dc1aa80cca19e8f0305b18e26db6eec3e1e58dac6c52837e0bc3b6ff93687",
-      "created_at": "2026-10-22T15:47:56.008Z"
+      "created_at": "2026-10-25T09:19:27.299Z"
     },
     {
-      "evidence_id": "ev-d423517c",
+      "evidence_id": "ev-485aefbc",
       "type": "screenshot",
-      "path": "evidence/1792684076011-keyboard-keyframe-4-01.png",
+      "path": "evidence/1792919967302-keyboard-keyframe-4-01.png",
       "checksum": "2c2dc1aa80cca19e8f0305b18e26db6eec3e1e58dac6c52837e0bc3b6ff93687",
-      "created_at": "2026-10-22T15:47:56.013Z"
+      "created_at": "2026-10-25T09:19:27.304Z"
     }
   ],
   "actions": [
     {
-      "action_id": "act-b93c42f0",
-      "idempotency_key": "e71b678032f4878fdb4794a66994e3873c71be59aa2b54af97c8dadcb44aab30",
+      "action_id": "act-b774a211",
+      "idempotency_key": "d37e9bcb67e2b9c6780d8b50fbaf848032dc3d595958135f72377429c77e0aeb",
       "action_type": "log_issue",
       "payload_json": {
-        "finding_id": "find-90c2d157",
+        "finding_id": "find-89d909e7",
         "title": "focus-indicator-removed failure at a:nth-of-type(9)",
         "description": "Focus indicator explicitly removed (outline: none/0) on interactive <a> (\"View the full rental policy\") pointing to \"index.html\" (WCAG 2.4.7)",
         "wcag_criterion": "2.4.7",
         "severity": "serious"
       },
       "status": "proposed",
-      "created_at": "2026-10-22T15:47:56.105Z"
+      "created_at": "2026-10-25T09:19:27.381Z"
     },
     {
-      "action_id": "act-e5302c9f",
-      "idempotency_key": "a2d195e184638115b2691c2c7de83c5d6e119761a543bdd93d126e508ccb9ddb",
+      "action_id": "act-3625f9be",
+      "idempotency_key": "ab7b0883f5b570df36b3c5dbff0ff5b3aeff0e0b6a36f17ac2b7a4b20a6994d9",
       "action_type": "log_issue",
       "payload_json": {
-        "finding_id": "find-ba0674cb",
+        "finding_id": "find-43bcdaa0",
         "title": "focus-indicator-removed failure at button#close-preview",
         "description": "Focus indicator explicitly removed (outline: none/0) on interactive <button> (\"Close preview\") (WCAG 2.4.7)",
         "wcag_criterion": "2.4.7",
         "severity": "serious"
       },
       "status": "proposed",
-      "created_at": "2026-10-22T15:47:56.107Z"
+      "created_at": "2026-10-25T09:19:27.384Z"
     },
     {
-      "action_id": "act-69817400",
-      "idempotency_key": "64f18a060e50d0ea267709322f98a0645980a104b1a5ec68a82c09dfc247e556",
+      "action_id": "act-00814b3f",
+      "idempotency_key": "60497f742de663c84cde30e375ace77d9fd5aba2a8ff4b8692c9dd90b8d7b48f",
       "action_type": "log_issue",
       "payload_json": {
-        "finding_id": "find-4b4156a1",
+        "finding_id": "find-64b41e9e",
         "title": "keyboard-trap failure at dialog, [role='dialog']",
         "description": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no.",
         "wcag_criterion": "2.1.2",
         "severity": "serious"
       },
       "status": "executed",
-      "created_at": "2026-10-22T15:47:56.109Z",
-      "executed_at": "2026-10-22T15:47:56.121Z"
+      "created_at": "2026-10-25T09:19:27.389Z",
+      "executed_at": "2026-10-25T09:19:27.403Z"
     }
   ],
   "approvals": [
     {
-      "approval_id": "apr-af59da13",
-      "action_id": "act-69817400",
+      "approval_id": "apr-ef531d78",
+      "action_id": "act-00814b3f",
       "decision": "approve",
       "approver": "Lead Auditor Jane",
       "reason": "Verified focus trap on video and trace",
-      "approved_at": "2026-10-22T15:47:56.118Z"
+      "approved_at": "2026-10-25T09:19:27.399Z"
     }
   ],
   "issues": [
     {
-      "issue_id": "issue-7fd56411",
-      "finding_id": "find-4b4156a1",
-      "action_id": "act-69817400",
+      "issue_id": "issue-d2adff83",
+      "finding_id": "find-64b41e9e",
+      "action_id": "act-00814b3f",
       "title": "keyboard-trap failure at dialog, [role='dialog']",
       "description": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no.",
       "wcag_criterion": "2.1.2",

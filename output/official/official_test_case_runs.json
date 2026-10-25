@@ -4,25 +4,25 @@
     "fixture": "modal.html",
     "input": {
       "urls": [
-        "http://127.0.0.1:61281/modal.html"
+        "http://127.0.0.1:58557/modal.html"
       ],
       "target_level": "WCAG2.2-AA",
       "fixture": "modal.html"
     },
     "expected_result": "Modal traps keyboard focus: Issue logged with recording (WCAG 2.1.2)",
-    "actual_result": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no. Issue logged (issue-7fd56411) with video recording and keystroke trace after human approval.",
+    "actual_result": "Focus trapped inside modal for 3 complete cycles while focusable elements exist outside. Escape closes modal: no. Issue logged (issue-d2adff83) with video recording and keystroke trace after human approval.",
     "matches_expected": true,
     "run_id": "run-official-tc1",
     "finding_ids": [
-      "find-4b4156a1"
+      "find-64b41e9e"
     ],
     "evidence_ids": [
-      "ev-c8bb6249",
-      "ev-d5988691",
-      "ev-c3207579",
-      "ev-794d6567",
-      "ev-0e4e7358",
-      "ev-d423517c"
+      "ev-325ce339",
+      "ev-1b7ebb88",
+      "ev-c873947b",
+      "ev-80163a0c",
+      "ev-6edbcd52",
+      "ev-485aefbc"
     ],
     "explanation": "Axe-core passed the modal dialog structure because ARIA attributes are valid. The deterministic keyboard walker detected that focus was trapped inside the modal for 3 full cycles without allowing access to outer elements, and Escape was prevented from closing the dialog. A human approved the proposed action, logging the issue with the attached .webm recording, keyframes, and keystroke trace."
   },
@@ -31,7 +31,7 @@
     "fixture": "links.html",
     "input": {
       "urls": [
-        "http://127.0.0.1:61281/links.html"
+        "http://127.0.0.1:58557/links.html"
       ],
       "target_level": "WCAG2.2-AA",
       "fixture": "links.html"
@@ -41,17 +41,17 @@
     "matches_expected": true,
     "run_id": "run-official-tc2",
     "finding_ids": [
-      "find-174ba8c5",
-      "find-a102dfa8",
-      "find-adb1c2b6",
-      "find-31968131"
+      "find-0c913f3c",
+      "find-644ea379",
+      "find-90f82b39",
+      "find-fc2a64ca"
     ],
     "evidence_ids": [
-      "ev-f30df181",
-      "ev-c708402f",
-      "ev-3a05435d",
-      "ev-fbfd0ad0",
-      "ev-49d040c4"
+      "ev-ada6cc5f",
+      "ev-0054de11",
+      "ev-0f3fbb58",
+      "ev-cbde03b8",
+      "ev-55432e35"
     ],
     "explanation": "Axe-core only inspects whether an <a> element has an accessible name, ignoring ambiguous phrases like 'click here' or 'read more' that lack surrounding context. Furthermore, axe does not detect CSS :focus { outline: none; } unless a specific rule is active at scan time. Our heuristics inspect accessible text against banned out-of-flow phrases and evaluate computed outline and box-shadow during simulated element focus."
   },
@@ -60,7 +60,7 @@
     "fixture": "photo-hero.html",
     "input": {
       "urls": [
-        "http://127.0.0.1:61281/photo-hero.html"
+        "http://127.0.0.1:58557/photo-hero.html"
       ],
       "target_level": "WCAG2.2-AA",
       "fixture": "photo-hero.html"
@@ -70,11 +70,11 @@
     "matches_expected": true,
     "run_id": "run-official-tc3",
     "finding_ids": [
-      "find-91a56703"
+      "find-92d82f34"
     ],
     "evidence_ids": [
-      "ev-e5ecab57",
-      "ev-af806d84"
+      "ev-43d62c56",
+      "ev-b6616ccd"
     ],
     "explanation": "Automated scanners like axe-core cannot evaluate contrast against CSS background-image textures and report 'incomplete' (needs review). Our sampler isolates the element clip, captures screenshots with text visible and with text hidden (visibility: hidden), samples the underlying photograph pixels, and calculates the true worst-case contrast ratio."
   },
@@ -83,21 +83,21 @@
     "fixture": "form.html / form-fixed.html",
     "input": {
       "urls": [
-        "http://127.0.0.1:61281/form.html"
+        "http://127.0.0.1:58557/form.html"
       ],
-      "fix_url": "http://127.0.0.1:61281/form-fixed.html",
+      "fix_url": "http://127.0.0.1:58557/form-fixed.html",
       "target_level": "WCAG2.2-AA",
       "fixture": "form.html -> form-fixed.html"
     },
     "expected_result": "Fix deployed: Same page retested; issue closed only if passing",
-    "actual_result": "form.html failed label check (issue issue-6152578e logged as open). Negative retest against still-broken form.html resulted in 'fail' leaving issue open. Retest against fixed form-fixed.html resulted in 'pass', proposing close_issue. Issue transitioned to 'closed' only after human approval.",
+    "actual_result": "form.html failed label check (issue issue-d90a3472 logged as open). Negative retest against still-broken form.html resulted in 'fail' leaving issue open. Retest against fixed form-fixed.html resulted in 'pass', proposing close_issue. Issue transitioned to 'closed' only after human approval.",
     "matches_expected": true,
     "run_id": "run-official-tc4",
     "finding_ids": [
-      "find-9e4e3958"
+      "find-0a7447db"
     ],
     "evidence_ids": [
-      "ev-5fc7b6cf"
+      "ev-f66cec40"
     ],
     "explanation": "A retest is executed in an isolated new run store while maintaining durable linkage to the original issue. When a retest fails, the issue remains open with failure recorded. When a retest passes, the issue does not close automatically; instead, a close_issue action is proposed, which closes the issue only upon explicit human approval."
   }
