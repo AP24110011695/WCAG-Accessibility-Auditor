@@ -14,6 +14,8 @@ const json = (body: unknown, status: number, extra: Record<string, string> = {})
 // Elevated key: new-style secret keys first (legacy keys are deprecated by end
 // of 2026); SUPABASE_SERVICE_ROLE_KEY remains for projects still on legacy keys.
 function serviceKey(): string {
+  const configured = Deno.env.get("APP_SUPABASE_SECRET_KEY");
+  if (configured) return configured;
   try {
     const dict = JSON.parse(Deno.env.get("SUPABASE_SECRET_KEYS") ?? "") as Record<string, string>;
     if (typeof dict["default"] === "string" && dict["default"]) return dict["default"];
