@@ -2,12 +2,12 @@
   "runs": [
     {
       "run_id": "run-official-tc4",
-      "created_at": "2026-10-25T09:19:30.431Z",
+      "created_at": "2026-10-25T14:22:03.323Z",
       "target_level": "WCAG2.2-AA",
       "status": "awaiting_approval",
       "config_json": {
         "urls": [
-          "http://127.0.0.1:58557/form.html"
+          "http://127.0.0.1:49533/form.html"
         ],
         "target_level": "WCAG2.2-AA",
         "max_pages": 1,
@@ -54,27 +54,27 @@
     {
       "input_id": "pg-run-official-tc4-01",
       "run_id": "run-official-tc4",
-      "url": "http://127.0.0.1:58557/form.html",
+      "url": "http://127.0.0.1:49533/form.html",
       "validation_status": "valid"
     }
   ],
   "sources": [
     {
-      "source_id": "src-f7037bd7",
+      "source_id": "src-bc72eaea",
       "input_id": "pg-run-official-tc4-01",
-      "url": "http://127.0.0.1:58557/form.html",
-      "retrieved_at": "2026-10-25T09:19:30.665Z",
+      "url": "http://127.0.0.1:49533/form.html",
+      "retrieved_at": "2026-10-25T14:22:03.692Z",
       "http_status": 200,
       "fetch_method": "cheerio",
       "content_hash": "6b365ab28b3abcef741bcd3f1a82d1aeed93e5034c47a0fcbfded7731aa10d53",
-      "snapshot_path": "evidence/1792919970709-snapshot-01.html"
+      "snapshot_path": "evidence/1792938123810-snapshot-01.html"
     }
   ],
   "findings": [
     {
-      "finding_id": "find-0a7447db",
+      "finding_id": "find-6f822f43",
       "input_id": "pg-run-official-tc4-01",
-      "source_id": "src-f7037bd7",
+      "source_id": "src-bc72eaea",
       "rule_id": "label",
       "wcag_criterion": "4.1.2",
       "selector": "#email",
@@ -82,21 +82,21 @@
       "state": "fail",
       "reason": "axe violation: Form elements must have labels (impact critical); 1 node(s)",
       "evidence_ids": [
-        "ev-f66cec40"
+        "ev-adefbe89"
       ],
       "run_id": "run-official-tc4"
     }
   ],
   "decisions": [
     {
-      "decision_id": "dec-630e27bd",
-      "finding_id": "find-0a7447db",
+      "decision_id": "dec-7d812db4",
+      "finding_id": "find-6f822f43",
       "input_id": "pg-run-official-tc4-01",
       "outcome": "fail",
       "rule": "label",
       "reason": "axe violation: Form elements must have labels (impact critical); 1 node(s)",
       "input_evidence_ids": [
-        "ev-f66cec40"
+        "ev-adefbe89"
       ],
       "llm_involved": false,
       "llm_status": "disabled"
@@ -104,93 +104,93 @@
   ],
   "evidence": [
     {
-      "evidence_id": "ev-0584b95b",
+      "evidence_id": "ev-19319895",
       "type": "dom_snippet",
-      "path": "evidence/1792919970709-snapshot-01.html",
+      "path": "evidence/1792938123810-snapshot-01.html",
       "checksum": "6b365ab28b3abcef741bcd3f1a82d1aeed93e5034c47a0fcbfded7731aa10d53",
-      "created_at": "2026-10-25T09:19:30.711Z"
+      "created_at": "2026-10-25T14:22:03.814Z"
     },
     {
-      "evidence_id": "ev-f66cec40",
+      "evidence_id": "ev-adefbe89",
       "type": "axe_report",
-      "path": "evidence/1792919971020-axe-01.json",
+      "path": "evidence/1792938124094-axe-01.json",
       "checksum": "f8e19337e4c92120c1f3ae7a6758948f3bfcb0ab286cfe871f40d6392dca4ae0",
-      "created_at": "2026-10-25T09:19:31.024Z"
+      "created_at": "2026-10-25T14:22:04.095Z"
     },
     {
-      "evidence_id": "ev-493a31a2",
+      "evidence_id": "ev-10e767b0",
       "type": "keystroke_trace",
-      "path": "evidence/1792919971572-keyboard-trace-01.json",
-      "checksum": "3bdce7abd4e1eb91262114e53057495e4984f85683d96d5565a153321a4ebd6d",
-      "created_at": "2026-10-25T09:19:31.575Z"
+      "path": "evidence/1792938124581-keyboard-trace-01.json",
+      "checksum": "2dfb09d698bdac551a45c8c59d6100709bb70f13494fd8f1f93bcd2aa8e3f89a",
+      "created_at": "2026-10-25T14:22:04.583Z"
     },
     {
-      "evidence_id": "ev-2c37886a",
+      "evidence_id": "ev-c603692a",
       "type": "video",
-      "path": "evidence/1792919971579-keyboard-walk-01.webm",
-      "checksum": "a74c592b122c0f69c9f29fdfeda4c19a6c4d9ad16d725c10b0af00d4bda442b1",
-      "created_at": "2026-10-25T09:19:31.580Z"
+      "path": "evidence/1792938124588-keyboard-walk-01.webm",
+      "checksum": "5d1ef0e98592277d79b3e407d2111cfdaf9c19768710f7775a106712c8411b45",
+      "created_at": "2026-10-25T14:22:04.590Z"
     },
     {
-      "evidence_id": "ev-d6d608e8",
+      "evidence_id": "ev-b9fd3fa1",
       "type": "screenshot",
-      "path": "evidence/1792919971582-keyboard-keyframe-1-01.png",
+      "path": "evidence/1792938124593-keyboard-keyframe-1-01.png",
       "checksum": "1664b539934eb7b6f6f99152d951c2dd4572f6a7df3ad7ce727cb03f16bbbb20",
-      "created_at": "2026-10-25T09:19:31.584Z"
+      "created_at": "2026-10-25T14:22:04.595Z"
     }
   ],
   "actions": [
     {
-      "action_id": "act-6fb473fe",
-      "idempotency_key": "a56a6c7a90264331e7ebcfcd9e0aa3ef1514840b85e633757678fec7c940c77f",
+      "action_id": "act-f4bbfdb1",
+      "idempotency_key": "34c6432975bfc4a8926326f31c1e5d3001f2599ca16cb3aaa31f1782e41b873d",
       "action_type": "log_issue",
       "payload_json": {
-        "finding_id": "find-0a7447db",
+        "finding_id": "find-6f822f43",
         "title": "label failure at #email",
         "description": "axe violation: Form elements must have labels (impact critical); 1 node(s)",
         "wcag_criterion": "4.1.2",
         "severity": "serious"
       },
       "status": "executed",
-      "created_at": "2026-10-25T09:19:31.650Z",
-      "executed_at": "2026-10-25T09:19:31.664Z"
+      "created_at": "2026-10-25T14:22:04.664Z",
+      "executed_at": "2026-10-25T14:22:04.675Z"
     },
     {
-      "action_id": "act-75808506",
-      "idempotency_key": "b82f59a41fe3e48d685392db10c8b337cddbdf11d9a52a340b066e0d7c527f95",
+      "action_id": "act-1a414b59",
+      "idempotency_key": "91699b1c2b46c642207cc643f8f80c061d6b6cc9978874507b5287b89ae53a9e",
       "action_type": "close_issue",
       "payload_json": {
-        "issue_id": "issue-d90a3472",
+        "issue_id": "issue-5c8f7ea0",
         "reason": "Resolved: retest passed all checks clean"
       },
       "status": "executed",
-      "created_at": "2026-10-25T09:19:34.006Z",
-      "executed_at": "2026-10-25T09:19:34.017Z"
+      "created_at": "2026-10-25T14:22:07.813Z",
+      "executed_at": "2026-10-25T14:22:07.830Z"
     }
   ],
   "approvals": [
     {
-      "approval_id": "apr-9f22ca5d",
-      "action_id": "act-6fb473fe",
+      "approval_id": "apr-ba093cab",
+      "action_id": "act-f4bbfdb1",
       "decision": "approve",
       "approver": "Lead Auditor Jane",
       "reason": "Approved logging of missing label",
-      "approved_at": "2026-10-25T09:19:31.662Z"
+      "approved_at": "2026-10-25T14:22:04.672Z"
     },
     {
-      "approval_id": "apr-da330833",
-      "action_id": "act-75808506",
+      "approval_id": "apr-f1f4812b",
+      "action_id": "act-1a414b59",
       "decision": "approve",
       "approver": "Lead Auditor Jane",
       "reason": "Approved closure after clean retest",
-      "approved_at": "2026-10-25T09:19:34.013Z"
+      "approved_at": "2026-10-25T14:22:07.826Z"
     }
   ],
   "issues": [
     {
-      "issue_id": "issue-d90a3472",
-      "finding_id": "find-0a7447db",
-      "action_id": "act-6fb473fe",
+      "issue_id": "issue-5c8f7ea0",
+      "finding_id": "find-6f822f43",
+      "action_id": "act-f4bbfdb1",
       "title": "label failure at #email",
       "description": "axe violation: Form elements must have labels (impact critical); 1 node(s)",
       "wcag_criterion": "4.1.2",
@@ -200,36 +200,36 @@
   ],
   "retests": [
     {
-      "retest_id": "ret-a9502a4c",
-      "issue_id": "issue-d90a3472",
-      "run_id": "run-202610250919-bd3b",
+      "retest_id": "ret-74b64a7d",
+      "issue_id": "issue-5c8f7ea0",
+      "run_id": "run-202610251422-129c",
       "intended": "Fix issue label failure at #email (4.1.2) and pass all checks",
       "observed": "Check 4.1.2 failed again on retested page",
       "outcome": "fail",
       "evidence_ids": [
-        "ev-517fd70d",
-        "ev-f2dbeb61",
-        "ev-f32b0949",
-        "ev-1ae969c5",
-        "ev-fdc3dcb1"
+        "ev-90a27473",
+        "ev-bf467217",
+        "ev-0ff0ee9b",
+        "ev-bf752b79",
+        "ev-a5ed8656"
       ],
-      "created_at": "2026-10-25T09:19:32.867Z"
+      "created_at": "2026-10-25T14:22:05.885Z"
     },
     {
-      "retest_id": "ret-02ccbe29",
-      "issue_id": "issue-d90a3472",
-      "run_id": "run-202610250919-9e42",
+      "retest_id": "ret-a32dc104",
+      "issue_id": "issue-5c8f7ea0",
+      "run_id": "run-202610251422-4db3",
       "intended": "Fix issue label failure at #email (4.1.2) and pass all checks",
       "observed": "All checks passed clean on retested page",
       "outcome": "pass",
       "evidence_ids": [
-        "ev-e46a9664",
-        "ev-9edbc0d8",
-        "ev-6d8dcfff",
-        "ev-0047d62c",
-        "ev-1643db44"
+        "ev-789cfb0d",
+        "ev-a6a13254",
+        "ev-cda55b88",
+        "ev-67b742f8",
+        "ev-d4868987"
       ],
-      "created_at": "2026-10-25T09:19:34.003Z"
+      "created_at": "2026-10-25T14:22:07.809Z"
     }
   ]
 }
